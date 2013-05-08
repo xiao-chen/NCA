@@ -451,7 +451,7 @@
                                                         <constraint firstAttribute="height" constant="294" id="09A-cc-OpA"/>
                                                         <constraint firstAttribute="width" constant="184" id="abB-n7-YaT"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -459,9 +459,9 @@
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="VKM-JW-Dix" secondAttribute="trailing" constant="20" type="default" id="1pA-Ru-xX3"/>
-                                            <constraint firstItem="VKM-JW-Dix" firstAttribute="top" secondItem="oNE-C4-SBJ" secondAttribute="top" type="default" id="7Ot-sr-Rmy"/>
                                             <constraint firstItem="oNE-C4-SBJ" firstAttribute="leading" secondItem="MEA-TK-Lqs" secondAttribute="leading" constant="20" type="user" id="HYn-Gr-h4A"/>
                                             <constraint firstItem="oNE-C4-SBJ" firstAttribute="top" secondItem="MEA-TK-Lqs" secondAttribute="top" constant="11" id="nsj-LC-AoG"/>
+                                            <constraint firstItem="VKM-JW-Dix" firstAttribute="top" secondItem="MEA-TK-Lqs" secondAttribute="top" constant="5" id="vkS-1C-0Ko"/>
                                         </constraints>
                                     </tableViewCell>
                                 </cells>
@@ -472,7 +472,9 @@
                             <outlet property="delegate" destination="PHk-zk-v6p" id="UOa-01-Awn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="RwD-Ga-wHo"/>
+                    <navigationItem key="navigationItem" id="RwD-Ga-wHo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="MYz-lW-1fa"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="notesTxt" destination="VKM-JW-Dix" id="yhA-ez-wuK"/>
                         <outlet property="passwordLabel" destination="5Oe-5S-roW" id="pZX-xg-Phe"/>

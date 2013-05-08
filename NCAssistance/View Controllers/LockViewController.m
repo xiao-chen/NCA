@@ -44,9 +44,12 @@
             if ([self.delegate verify:self.codeIn.text]) {
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
+            else {
+                self.hoverLbl.text = @"Oops, your password is wrong!";
+            }
         }
         else {
-            self.hoverLbl.text = @"Oops, your password is wrong!";
+            self.hoverLbl.text = @"So, do you have the code?";
         }
             
     }
