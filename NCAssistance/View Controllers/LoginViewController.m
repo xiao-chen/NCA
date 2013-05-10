@@ -95,9 +95,21 @@
 
 #pragma mark - Text field delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if ((textField == self.passwordIn) || (textField == self.passwordConfirm) || (textField == self.question) || (textField == self.answer)) {
+    if (textField == self.passwordIn) {
         [textField resignFirstResponder];
+		[self.passwordConfirm becomeFirstResponder];
     }
+	else if (textField == self.passwordConfirm) {
+		[textField resignFirstResponder];
+		[self.question becomeFirstResponder];
+	}
+	else if (textField == self.question) {
+		[textField resignFirstResponder];
+		[self.answer becomeFirstResponder];
+	}
+	else if (textField == self.answer) {
+		[textField resignFirstResponder];
+	}
     return YES;
 }
 
