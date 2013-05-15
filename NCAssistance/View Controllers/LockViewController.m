@@ -46,6 +46,9 @@
             }
             else {
                 self.hoverLbl.text = @"Oops, your password is wrong!";
+                self.cast.text = @"Don't do it wrong";
+                self.now.text = @"";
+                self.magic.text = @"9 LEFT";
             }
         }
         else {

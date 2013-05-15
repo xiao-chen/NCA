@@ -17,6 +17,9 @@
 @property (nonatomic, weak) IBOutlet id <LockViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITextField *codeIn;
 @property (weak, nonatomic) IBOutlet UILabel *hoverLbl;
+@property (weak, nonatomic) IBOutlet UILabel *cast;
+@property (weak, nonatomic) IBOutlet UILabel *magic;
+@property (weak, nonatomic) IBOutlet UILabel *now;
 - (IBAction)touchUpOutside:(id)sender;  //todo
 
 @end

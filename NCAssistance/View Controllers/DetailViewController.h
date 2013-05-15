@@ -19,4 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *websiteLabel;
 @property (weak, nonatomic) IBOutlet UITextView *notesTxt;
 
+- (IBAction)done:(UIStoryboardSegue *)segue;
+- (IBAction)cancel:(UIStoryboardSegue *)segue;
+
 @end

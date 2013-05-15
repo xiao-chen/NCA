@@ -112,6 +112,7 @@
     Password *item = (Password *)[aPasswords objectAtIndex:indexPath.row];
     cell.titleLabel.text = [item title];
     cell.notesLabel.text = [item notes];
+    NSLog(@"%@, %@, %@, %@, %@", item.title, item.username, item.password, item.website, item.notes);     //debug
     return cell;
 }
 
