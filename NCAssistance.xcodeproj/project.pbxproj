@@ -30,6 +30,8 @@
 		0F21E29D1734C11F00A94369 /* Password.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F21E29C1734C11F00A94369 /* Password.m */; };
 		0F21E29F1734C1F100A94369 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F21E29E1734C1F100A94369 /* CoreData.framework */; };
 		0F4449C0173F8F5100695A4B /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4449BF173F8F5100695A4B /* EditViewController.m */; };
+		0F73F9131746FCFE00EA270A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F73F9121746FCFE00EA270A /* SettingsViewController.m */; };
+		0F73F9161746FDE200EA270A /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F73F9151746FDE200EA270A /* ResetPasswordViewController.m */; };
 		0FABC5FF173636DC00E4E98F /* concierge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0FABC5FE173636DC00E4E98F /* concierge.jpg */; };
 		0FABC6091737C8D000E4E98F /* LockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FABC6071737C8D000E4E98F /* LockViewController.m */; };
 		0FABC60A1737C8D000E4E98F /* LockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FABC6081737C8D000E4E98F /* LockViewController.xib */; };
@@ -83,6 +85,10 @@
 		0F21E29E1734C1F100A94369 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0F4449BE173F8F5100695A4B /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditViewController.h; path = "View Controllers/EditViewController.h"; sourceTree = "<group>"; };
 		0F4449BF173F8F5100695A4B /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditViewController.m; path = "View Controllers/EditViewController.m"; sourceTree = "<group>"; };
+		0F73F9111746FCFE00EA270A /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = "View Controllers/SettingsViewController.h"; sourceTree = "<group>"; };
+		0F73F9121746FCFE00EA270A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = "View Controllers/SettingsViewController.m"; sourceTree = "<group>"; };
+		0F73F9141746FDE200EA270A /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResetPasswordViewController.h; path = "View Controllers/ResetPasswordViewController.h"; sourceTree = "<group>"; };
+		0F73F9151746FDE200EA270A /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResetPasswordViewController.m; path = "View Controllers/ResetPasswordViewController.m"; sourceTree = "<group>"; };
 		0FABC5FE173636DC00E4E98F /* concierge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = concierge.jpg; path = icons/concierge.jpg; sourceTree = "<group>"; };
 		0FABC6061737C8D000E4E98F /* LockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LockViewController.h; path = "View Controllers/LockViewController.h"; sourceTree = "<group>"; };
 		0FABC6071737C8D000E4E98F /* LockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LockViewController.m; path = "View Controllers/LockViewController.m"; sourceTree = "<group>"; };
@@ -215,16 +221,20 @@
 				0F21E2831734BED300A94369 /* AddViewController.m */,
 				0F21E2841734BED300A94369 /* DetailViewController.h */,
 				0F21E2851734BED300A94369 /* DetailViewController.m */,
-				0F21E2881734BED300A94369 /* MainViewController.h */,
-				0F21E2891734BED300A94369 /* MainViewController.m */,
+				0F4449BE173F8F5100695A4B /* EditViewController.h */,
+				0F4449BF173F8F5100695A4B /* EditViewController.m */,
 				0FABC6061737C8D000E4E98F /* LockViewController.h */,
 				0FABC6071737C8D000E4E98F /* LockViewController.m */,
 				0FABC6081737C8D000E4E98F /* LockViewController.xib */,
 				0FABC60B1737EF7000E4E98F /* LoginViewController.h */,
 				0FABC60C1737EF7000E4E98F /* LoginViewController.m */,
 				0FABC60D1737EF7000E4E98F /* LoginViewController.xib */,
-				0F4449BE173F8F5100695A4B /* EditViewController.h */,
-				0F4449BF173F8F5100695A4B /* EditViewController.m */,
+				0F21E2881734BED300A94369 /* MainViewController.h */,
+				0F21E2891734BED300A94369 /* MainViewController.m */,
+				0F73F9141746FDE200EA270A /* ResetPasswordViewController.h */,
+				0F73F9151746FDE200EA270A /* ResetPasswordViewController.m */,
+				0F73F9111746FCFE00EA270A /* SettingsViewController.h */,
+				0F73F9121746FCFE00EA270A /* SettingsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -373,6 +383,8 @@
 				0FABC60E1737EF7000E4E98F /* LoginViewController.m in Sources */,
 				0FABC6121737F2B700E4E98F /* Constants.m in Sources */,
 				0F4449C0173F8F5100695A4B /* EditViewController.m in Sources */,
+				0F73F9131746FCFE00EA270A /* SettingsViewController.m in Sources */,
+				0F73F9161746FDE200EA270A /* ResetPasswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -56,6 +56,18 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     [self setBShowLockView:YES];
+    
+    // In case the app was terminated
+    if (!self.mainViewControler) {
+        MainViewController *rootViewController = [[MainViewController alloc] initWithStyle:UITableViewStylePlain];
+        NSManagedObjectContext *context = [self managedObjectContext];
+        if (!context) {
+            // Handle the error.
+        }
+        // Pass the managed object context to the view controller.
+        rootViewController.managedObjectContext = context;
+        [self setMainViewControler:rootViewController];
+    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -105,6 +117,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:
+    // TODO!!
 }
 
 #pragma mark - NSManagedObject methods

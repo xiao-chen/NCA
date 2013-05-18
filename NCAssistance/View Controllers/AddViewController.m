@@ -18,7 +18,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -27,11 +27,8 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.doneBtn.target = self;
+    self.doneBtn.action = @selector(doneAction);
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,6 +87,32 @@
     [UIView setAnimationDuration: movementDuration];
     self.view.frame = CGRectOffset(self.view.frame, 0, movement);
     [UIView commitAnimations];
+}
+
+- (IBAction)doneAction
+{
+    // Input Validation
+    if (self.titleIn.text.length == 0) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error"
+                                                    message:@"Title is required."
+                                                    delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    if (self.passwordIn.text.length == 0) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error"
+                                                    message:@"Password is required."
+                                                    delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    [self performSegueWithIdentifier:@"DoneAdding" sender:self];
 }
 
 @end

@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *cast;
 @property (weak, nonatomic) IBOutlet UILabel *magic;
 @property (weak, nonatomic) IBOutlet UILabel *now;
+
 - (IBAction)touchUpOutside:(id)sender;  //todo
+- (IBAction)forgotPassword:(id)sender;
 
 @end

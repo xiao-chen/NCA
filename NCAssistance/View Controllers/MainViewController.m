@@ -67,6 +67,7 @@
     if (self.aPasswords.count > 0) {
         for (int i=0; i < self.aPasswords.count; i++) {
             if ([[(Password *)[self.aPasswords objectAtIndex:i] title] isEqualToString: strAppUnlockTitle] && [[(Password *)[self.aPasswords objectAtIndex:i] username] isEqualToString: strAppUnlockName]) {
+                // NCA password. Hidden
                 [self.aPasswords removeObjectAtIndex:i];
                 break;
             }
@@ -158,28 +159,26 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"ShowDetails"]) {
-        DetailViewController *detailViewController = [segue destinationViewController];
-        detailViewController.record = (Password *)[self.aPasswords objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        DetailViewController *dvc = [segue destinationViewController];
+        dvc.record = (Password *)[self.aPasswords objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        dvc.delegate = self;
     }
 }
 
 #pragma mark - Unwind segues
 - (IBAction)done:(UIStoryboardSegue *)segue
 {
-    if ([[segue identifier] isEqualToString:@"ReturnInput"]) {        
+    if ([[segue identifier] isEqualToString:@"DoneAdding"]) {        
         AddViewController *addController = [segue sourceViewController];
-        if (addController.titleIn.text.length > 0 || addController.userIn.text.length > 0 || addController.passwordIn.text.length > 0) {
-            [self addRecord:addController.titleIn.text name:addController.userIn.text password:addController.passwordIn.text onWeb:addController.websiteIn.text withNotes:addController.notesIn.text];
-            //todo - validation
-            [[self tableView] reloadData];
-            [self dismissViewControllerAnimated:YES completion:NULL];
-        }
+        [self addRecord:addController.titleIn.text name:addController.userIn.text password:addController.passwordIn.text onWeb:addController.websiteIn.text withNotes:addController.notesIn.text];
+        [[self tableView] reloadData];
+//        [self dismissViewControllerAnimated:YES completion:NULL];
     }
 }
 
 - (IBAction)cancel:(UIStoryboardSegue *)segue
 {
-    if ([[segue identifier] isEqualToString:@"CancelInput"]) {
+    if ([[segue identifier] isEqualToString:@"CancelAdding"]) {
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
 }
@@ -194,44 +193,6 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-}
-
-#pragma mark - LoginViewController delegate
-- (void)addRecord:(NSString *)title name:(NSString *)username password:(NSString *)pswd onWeb:(NSString *)website withNotes:(NSString *)notes
-{
-    NSLog(@"Adding new item: title=%@, username=%@, password=%@, website=%@, notes=%@", title, username, pswd, website, notes);
-    
-    if (self.managedObjectContext == nil)
-    {
-        self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    }
-    
-	// Create and configure a new instance of the Event entity.
-	Password *item = (Password *)[NSEntityDescription insertNewObjectForEntityForName:@"Password" inManagedObjectContext:self.managedObjectContext];
-    
-	[item setTitle: title];
-	[item setUsername: username];
-	[item setPassword: pswd];
-    [item setWebsite:website];
-    [item setNotes:notes];
-    
-	NSError *error = nil;
-	if (![self.managedObjectContext save:&error]) {
-    	// Handle the error.
-		UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error"
-                                                        message:@"Saving item failed."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Cancel"
-                                              otherButtonTitles:nil];
-		[alert show];
-	}
-    
-    // Add item to current view
-    if (!self.aPasswords) {     //todo - more thoughts
-        self.aPasswords = [[NSMutableArray alloc] init];
-    }
-    [self.aPasswords insertObject:item atIndex:0];
-    [self.tableView reloadData];
 }
 
 #pragma mark - LockViewController delegate
@@ -257,12 +218,95 @@
                                               otherButtonTitles:nil];
         [alert show];
     }
-
+    
     Password * pswd = (Password *)[mutableFetchResults objectAtIndex:0];
     if ([code isEqualToString: pswd.password]) {
         return YES;
     }
     return NO;
+}
+
+#pragma mark - LoginViewController delegate
+- (void)addRecord:(NSString *)title name:(NSString *)username password:(NSString *)pswd onWeb:(NSString *)website withNotes:(NSString *)notes
+{
+    NSLog(@"Adding new item: title=%@, username=%@, password=%@, website=%@, notes=%@", title, username, pswd, website, notes);
+    
+    if (self.managedObjectContext == nil)
+    {
+        self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    }
+    
+	// Create and configure a new instance of the Event entity.
+	Password *item = (Password *)[NSEntityDescription insertNewObjectForEntityForName:@"Password" inManagedObjectContext:self.managedObjectContext];
+    
+	[item setTitle: title];
+	[item setUsername: username];
+	[item setPassword: pswd];
+    [item setWebsite:website];
+    [item setNotes:notes];
+    
+	if (![self saveContext]) {
+    	// Handle the error.
+		UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error"
+                                                        message:@"Saving item failed."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:nil];
+		[alert show];
+	}
+    
+    // Add item to current view
+    if (!self.aPasswords) {     //todo - more thoughts
+        self.aPasswords = [[NSMutableArray alloc] init];
+    }
+    [self.aPasswords insertObject:item atIndex:0];
+    [self.tableView reloadData];
+}
+
+#pragma mark - DetialViewController delegate
+- (void)UpdateRecord:(Password*) curItem with:(Password*) newItem
+{
+    NSLog(@"Updating %@ to %@", curItem.title, newItem.title);
+    if (![self saveContext]) {
+    	// Handle the error.
+		UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error"
+                                                        message:@"Updating item failed."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:nil];
+		[alert show];
+	}
+    
+    [self.tableView reloadData];
+}
+
+- (BOOL) saveContext
+{
+    NSError *error = nil;
+	if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Error saving: %@", error.localizedDescription);
+    	return NO;
+	}
+    
+    return YES;
+}
+
+#pragma mark - EditViewController delgate
+
+-(void) deletePassword:(Password *) item
+{
+    [self.aPasswords removeObject:item];
+    [self.managedObjectContext deleteObject:item];
+    if (![self saveContext]) {
+    	// Handle the error.
+		UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error"
+                                                        message:@"Updating item failed."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:nil];
+		[alert show];
+	}
+    [self.tableView reloadData];
 }
 
 @end

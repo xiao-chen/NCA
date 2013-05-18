@@ -10,10 +10,12 @@
 #import <CoreData/CoreData.h>
 #import "LoginViewController.h"
 #import "LockViewController.h"
+#import "DetailViewController.h"
+#import "EditViewController.h"
 
 @class MainViewController;
 
-@interface MainViewController : UITableViewController <NSFetchedResultsControllerDelegate, LoginViewControllerDelegate, LockViewControllerDelegate> {
+@interface MainViewController : UITableViewController <NSFetchedResultsControllerDelegate, LoginViewControllerDelegate, LockViewControllerDelegate, DetailViewControllerDelegate, EditViewControllerDelegate> {
     NSMutableArray *aPasswords;
     NSManagedObjectContext *managedObjectContext;
 }

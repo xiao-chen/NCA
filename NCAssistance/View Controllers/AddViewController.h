@@ -15,5 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordIn;
 @property (weak, nonatomic) IBOutlet UITextField *websiteIn;
 @property (weak, nonatomic) IBOutlet UITextField *notesIn;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneBtn;
+
+- (IBAction)doneAction;
 
 @end

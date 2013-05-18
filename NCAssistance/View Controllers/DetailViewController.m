@@ -32,13 +32,7 @@
     [super viewDidLoad];
 
     // Update the user interface for the detail item.
-    if (self.record) {
-        self.titleLabel.text = self.record.title;
-        self.usernameLabel.text = self.record.username;
-        self.passwordLabel.text = self.record.password;
-        self.websiteLabel.text = self.record.website;
-        self.notesTxt.text = self.record.notes;
-    }
+    [self reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,8 +45,9 @@
 {
     if ([[segue identifier] isEqualToString:@"EditItem"]) {
         UINavigationController *nc = [segue destinationViewController];
-        EditViewController *editViewController = (EditViewController*) nc.topViewController;
-        editViewController.record = self.record;
+        EditViewController *evc = (EditViewController*) nc.topViewController;
+        evc.delegate = (id)self.delegate;
+        evc.record = self.record;
     }
 }
 
@@ -60,7 +55,9 @@
 - (IBAction)done:(UIStoryboardSegue *)segue
 {
     if ([[segue identifier] isEqualToString:@"DoneEditing"]) {
-        [self dismissViewControllerAnimated:YES completion:NULL];
+        EditViewController *evc = (EditViewController*) [segue sourceViewController];
+        [self.delegate UpdateRecord:self.record with:evc.record];
+        [self reloadData];
     }
 }
 
@@ -68,6 +65,17 @@
 {
     if ([[segue identifier] isEqualToString:@"CancelEditing"]) {
         [self dismissViewControllerAnimated:YES completion:NULL];
+    }
+}
+
+- (void) reloadData
+{
+    if (self.record) {
+        self.titleLabel.text = self.record.title;
+        self.usernameLabel.text = self.record.username;
+        self.passwordLabel.text = self.record.password;
+        self.websiteLabel.text = self.record.website;
+        self.notesTxt.text = self.record.notes;
     }
 }
 

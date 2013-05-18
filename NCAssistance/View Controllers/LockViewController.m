@@ -8,6 +8,7 @@
 
 #import "LockViewController.h"
 #import "Constants.h"
+#import "AppDelegate.h"
 
 @interface LockViewController ()
 
@@ -85,5 +86,15 @@
 
 - (IBAction)touchUpOutside:(id)sender {
     [self.codeIn resignFirstResponder];
+}
+
+- (IBAction)forgotPassword:(id)sender {
+    //(AppDelegate *)[[UIApplication sharedApplication]
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"todo"
+                                                    message:@"not implemented yet.."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 @end

@@ -10,8 +10,13 @@
 
 @class Password;
 
+@protocol DetailViewControllerDelegate
+- (void)UpdateRecord:(Password*) curItem with:(Password*) newItem;
+@end
+
 @interface DetailViewController : UITableViewController
 
+@property (nonatomic, weak) IBOutlet id <DetailViewControllerDelegate> delegate;
 @property (strong, nonatomic) Password *record;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;

@@ -38,7 +38,7 @@
 
 
 - (IBAction)login:(id)sender {
-    if ([self.passwordIn.text isEqualToString:@""]) {
+    if (self.passwordIn.text.length == 0) {
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error"
                                                         message:@"Please set your password."
                                                        delegate:nil
@@ -48,7 +48,7 @@
         return;
     }
     
-    if ([self.passwordConfirm.text isEqualToString:@""]) {
+    if (self.passwordConfirm.text.length == 0) {
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error"
                                                         message:@"Please confirm your password."
                                                        delegate:nil
@@ -68,7 +68,7 @@
         return;
     }
     
-    if ([self.question.text isEqualToString:@""]) {
+    if (self.question.text.length == 0) {
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error"
                                                         message:@"Please set your security question."
                                                        delegate:nil
@@ -78,7 +78,7 @@
         return;
     }
     
-    if ([self.answer.text isEqualToString:@""]) {
+    if (self.answer.text.length == 0) {
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error"
                                                         message:@"Please set your security answer."
                                                        delegate:nil

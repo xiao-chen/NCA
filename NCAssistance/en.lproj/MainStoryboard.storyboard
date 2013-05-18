@@ -195,16 +195,17 @@
                     <navigationItem key="navigationItem" id="pBs-Jj-Zfx">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="sX6-Qh-ydy">
                             <connections>
-                                <segue destination="vFu-MQ-Nqp" kind="unwind" identifier="CancelInput" unwindAction="cancel:" id="CZW-Ie-vbJ"/>
+                                <segue destination="vFu-MQ-Nqp" kind="unwind" identifier="CancelAdding" unwindAction="cancel:" id="CZW-Ie-vbJ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="WeL-As-VMd">
                             <connections>
-                                <segue destination="vFu-MQ-Nqp" kind="unwind" identifier="ReturnInput" unwindAction="done:" id="mqH-hg-zOd"/>
+                                <segue destination="vFu-MQ-Nqp" kind="unwind" identifier="DoneAdding" unwindAction="done:" id="mqH-hg-zOd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneBtn" destination="WeL-As-VMd" id="S0U-2W-Vpc"/>
                         <outlet property="notesIn" destination="03Z-qr-Zv1" id="Ylp-PP-s6z"/>
                         <outlet property="passwordIn" destination="66m-96-hGI" id="ONc-wh-KB3"/>
                         <outlet property="titleIn" destination="Ac1-AM-9zD" id="Jao-eo-jv0"/>
@@ -272,7 +273,11 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem systemItem="search" id="jcA-nf-EiP"/>
+                        <barButtonItem systemItem="search" id="jcA-nf-EiP">
+                            <connections>
+                                <segue destination="a0H-Wr-ZlU" kind="push" id="LCV-GQ-q6M"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="teA-vg-w5X">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Iqg-h2-aqJ">
@@ -495,6 +500,138 @@
             </objects>
             <point key="canvasLocation" x="261" y="153"/>
         </scene>
+        <!--Reset Password View Controller-->
+        <scene sceneID="ssK-mh-1Rk">
+            <objects>
+                <viewController id="xz7-bp-6cM" customClass="ResetPasswordViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ubL-kX-D10">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Qc-dH-auY">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="bY3-JQ-mD7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3Qc-dH-auY" firstAttribute="top" secondItem="ubL-kX-D10" secondAttribute="top" constant="183" id="qBf-C0-pe6"/>
+                            <constraint firstItem="3Qc-dH-auY" firstAttribute="centerX" secondItem="ubL-kX-D10" secondAttribute="centerX" type="default" id="zAQ-9b-kF6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="PXE-Kb-u3B"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MmL-r4-bCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1313" y="860"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="5OM-lz-Xtg">
+            <objects>
+                <tableViewController id="a0H-Wr-ZlU" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SPm-Cu-BgN">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection headerTitle="Section-1" id="wWp-Xc-gWY">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="haz-AJ-Wxb">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FAQ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAF-Ek-MpP">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="126" id="foV-Se-efU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="PAF-Ek-MpP" firstAttribute="leading" secondItem="haz-AJ-Wxb" secondAttribute="leading" constant="20" type="default" id="fUo-dR-lyn"/>
+                                            <constraint firstItem="PAF-Ek-MpP" firstAttribute="top" secondItem="haz-AJ-Wxb" secondAttribute="top" constant="11" id="ymj-5i-PDs"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Pxd-UX-Nzp">
+                                        <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Credits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rE-De-Je5">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="126" id="4eA-Zy-0Ah"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="9rE-De-Je5" firstAttribute="top" secondItem="Pxd-UX-Nzp" secondAttribute="top" constant="11" id="Q6j-fe-lsF"/>
+                                            <constraint firstItem="9rE-De-Je5" firstAttribute="leading" secondItem="Pxd-UX-Nzp" secondAttribute="leading" constant="20" type="default" id="jkA-Dy-0lO"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Section-2" id="MvE-CF-JeM">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xmQ-76-ZLn">
+                                        <rect key="frame" x="0.0" y="132" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZF-Gx-oSd">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="126" id="Nrz-yG-FRJ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="PZF-Gx-oSd" firstAttribute="top" secondItem="xmQ-76-ZLn" secondAttribute="top" constant="11" id="Smc-aj-5c3"/>
+                                            <constraint firstItem="PZF-Gx-oSd" firstAttribute="leading" secondItem="xmQ-76-ZLn" secondAttribute="leading" constant="20" type="default" id="X4v-CZ-rKh"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="a0H-Wr-ZlU" id="dcv-VK-upL"/>
+                            <outlet property="delegate" destination="a0H-Wr-ZlU" id="bPE-Ey-uOu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Y7l-Z0-g1h">
+                        <barButtonItem key="rightBarButtonItem" title="Reset" id="1Hv-K9-yu0">
+                            <connections>
+                                <segue destination="xz7-bp-6cM" kind="push" id="mhT-nM-5Vq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lZj-vu-kWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1839" y="148"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="PuC-O1-3is">
             <objects>
@@ -544,6 +681,20 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6Qr-XO-Glv">
+                            <rect key="frame" x="0.0" y="221" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Delete Password">
+                                <color key="titleColor" red="0.67692764949999995" green="0.031895979919999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="deleteAction:" destination="bJ6-SI-OjS" eventType="touchUpInside" id="xHA-sx-aV3"/>
+                            </connections>
+                        </button>
                         <sections>
                             <tableViewSection id="sN4-GP-tTS">
                                 <cells>
@@ -737,6 +888,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="deleteBtn" destination="6Qr-XO-Glv" id="tO8-tR-iIU"/>
+                        <outlet property="doneBtn" destination="a8h-b7-5ni" id="rZy-T3-lVY"/>
                         <outlet property="notesIn" destination="zVa-hj-ZuS" id="ykv-D4-14b"/>
                         <outlet property="passwordIn" destination="eb8-vo-2KY" id="MBD-fm-V9S"/>
                         <outlet property="titleIn" destination="EBM-2x-SAg" id="jM9-up-4uD"/>
@@ -768,6 +921,74 @@
             <point key="canvasLocation" x="261" y="-551"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AddViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneAction"/>
+                <relationship kind="outlet" name="doneBtn" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="notesIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="websiteIn" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="DetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="delegate"/>
+                <relationship kind="outlet" name="notesTxt" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="passwordLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="usernameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="websiteLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EditViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="deleteAction:"/>
+                <relationship kind="action" name="doneAction"/>
+                <relationship kind="outlet" name="delegate"/>
+                <relationship kind="outlet" name="deleteBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="doneBtn" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="notesIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="websiteIn" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MainViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RecordCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="notesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ResetPasswordViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResetPasswordViewController.h"/>
+        </class>
+        <class className="SettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
