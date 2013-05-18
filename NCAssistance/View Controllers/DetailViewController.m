@@ -56,7 +56,7 @@
 {
     if ([[segue identifier] isEqualToString:@"DoneEditing"]) {
         EditViewController *evc = (EditViewController*) [segue sourceViewController];
-        [self.delegate UpdateRecord:self.record with:evc.record];
+        [self.delegate UpdateRecord:evc.record];
         [self reloadData];
     }
 }

@@ -99,6 +99,7 @@
     }
     
     if (mutableFetchResults.count > 0) {
+        // Locked
         if (!self.lockViewController) {
             [self setLockViewController:[[LockViewController alloc] initWithNibName:@"LockViewController" bundle:nil]];
             self.lockViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;

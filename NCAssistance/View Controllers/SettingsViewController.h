@@ -10,4 +10,6 @@
 
 @interface SettingsViewController : UITableViewController
 
+- (IBAction)back2Settings:(UIStoryboardSegue *)segue;
+
 @end

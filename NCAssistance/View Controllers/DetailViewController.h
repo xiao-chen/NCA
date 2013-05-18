@@ -11,7 +11,7 @@
 @class Password;
 
 @protocol DetailViewControllerDelegate
-- (void)UpdateRecord:(Password*) curItem with:(Password*) newItem;
+- (void)UpdateRecord:(Password*) item;
 @end
 
 @interface DetailViewController : UITableViewController

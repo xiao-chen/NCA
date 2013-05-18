@@ -13,6 +13,7 @@
 #import "Password.h"
 #import "RecordCell.h"
 #import "Constants.h"
+#import "ResetPasswordViewController.h"
 
 @interface MainViewController ()
 
@@ -172,15 +173,42 @@
         AddViewController *addController = [segue sourceViewController];
         [self addRecord:addController.titleIn.text name:addController.userIn.text password:addController.passwordIn.text onWeb:addController.websiteIn.text withNotes:addController.notesIn.text];
         [[self tableView] reloadData];
-//        [self dismissViewControllerAnimated:YES completion:NULL];
+    }
+    else if ([[segue identifier] isEqualToString:@"ChangePassword"]) {
+        Password *pswd;
+        // Search to see if login password is set
+        {
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Password" inManagedObjectContext:self.managedObjectContext];
+            [request setEntity:entity];
+            
+            //add predicates
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@ AND username = %@", strAppUnlockTitle, strAppUnlockName];
+            [request setPredicate:predicate];
+            
+            NSError *error = nil;
+            NSMutableArray *mutableFetchResults = [[self.managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+            if (mutableFetchResults == nil) {
+                // Handle the error.
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error"
+                                                                message:@"Fetching item failed."
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Sigh..."
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+            
+            pswd = (Password *)[mutableFetchResults objectAtIndex:0];
+        }
+
+        ResetPasswordViewController *rpvc = [segue sourceViewController];
+        pswd.password = rpvc.passwordIn.text;
+        [self UpdateRecord:pswd];
     }
 }
 
 - (IBAction)cancel:(UIStoryboardSegue *)segue
 {
-    if ([[segue identifier] isEqualToString:@"CancelAdding"]) {
-        [self dismissViewControllerAnimated:YES completion:NULL];
-    }
 }
 
 #pragma mark - Table view delegate
@@ -264,9 +292,9 @@
 }
 
 #pragma mark - DetialViewController delegate
-- (void)UpdateRecord:(Password*) curItem with:(Password*) newItem
+- (void)UpdateRecord:(Password*) item
 {
-    NSLog(@"Updating %@ to %@", curItem.title, newItem.title);
+    NSLog(@"Updating %@", item.title);
     if (![self saveContext]) {
     	// Handle the error.
 		UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error"
@@ -292,7 +320,6 @@
 }
 
 #pragma mark - EditViewController delgate
-
 -(void) deletePassword:(Password *) item
 {
     [self.aPasswords removeObject:item];

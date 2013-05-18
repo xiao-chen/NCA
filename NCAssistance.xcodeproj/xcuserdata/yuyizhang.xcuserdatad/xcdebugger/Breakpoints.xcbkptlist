@@ -97,11 +97,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NCAssistance/View Controllers/MainViewController.m"
-         timestampString = "389624040.406761"
+         timestampString = "390551268.08051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "37"
-         endingLineNumber = "37"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -136,11 +136,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NCAssistance/View Controllers/MainViewController.m"
-         timestampString = "389624040.406761"
+         timestampString = "390551268.08051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "67"
-         endingLineNumber = "67"
+         startingLineNumber = "68"
+         endingLineNumber = "68"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -149,7 +149,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NCAssistance/AppDelegate.m"
-         timestampString = "390542437.421267"
+         timestampString = "390551268.08051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "101"
@@ -175,11 +175,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NCAssistance/View Controllers/MainViewController.m"
-         timestampString = "390534697.738827"
+         timestampString = "390551268.08051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "107"
-         endingLineNumber = "107"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -188,11 +188,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NCAssistance/View Controllers/MainViewController.m"
-         timestampString = "389624040.406761"
+         timestampString = "390551268.08051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "54"
-         endingLineNumber = "54"
+         startingLineNumber = "55"
+         endingLineNumber = "55"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -214,11 +214,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NCAssistance/View Controllers/MainViewController.m"
-         timestampString = "390534697.738827"
+         timestampString = "390551268.08051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "171"
-         endingLineNumber = "171"
+         startingLineNumber = "172"
+         endingLineNumber = "172"
          landmarkName = "-done:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -227,38 +227,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NCAssistance/View Controllers/MainViewController.m"
-         timestampString = "390534697.738827"
+         timestampString = "390551268.08051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "108"
-         endingLineNumber = "108"
+         startingLineNumber = "109"
+         endingLineNumber = "109"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "NCAssistance/View Controllers/MainViewController.m"
-         timestampString = "390534697.738827"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "175"
-         endingLineNumber = "175"
-         landmarkName = "-done:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "NCAssistance/View Controllers/MainViewController.m"
-         timestampString = "390534697.738827"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "175"
-         endingLineNumber = "175"
-         landmarkName = "-done:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -305,11 +279,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NCAssistance/View Controllers/MainViewController.m"
-         timestampString = "390534697.738827"
+         timestampString = "390551268.08051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "170"
-         endingLineNumber = "170"
+         startingLineNumber = "171"
+         endingLineNumber = "171"
          landmarkName = "-done:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -318,11 +292,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NCAssistance/View Controllers/MainViewController.m"
-         timestampString = "390534697.738827"
+         timestampString = "390551268.08051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "180"
-         endingLineNumber = "180"
+         startingLineNumber = "211"
+         endingLineNumber = "211"
          landmarkName = "-cancel:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -370,12 +344,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NCAssistance/View Controllers/MainViewController.m"
-         timestampString = "390535361.018923"
+         timestampString = "390551268.08051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "278"
-         endingLineNumber = "278"
-         landmarkName = "-UpdateRecord:with:"
+         startingLineNumber = "306"
+         endingLineNumber = "306"
+         landmarkName = "-UpdateRecord:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -383,11 +357,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NCAssistance/AppDelegate.m"
-         timestampString = "390542437.421267"
+         timestampString = "390551268.08051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "126"
-         endingLineNumber = "126"
+         startingLineNumber = "127"
+         endingLineNumber = "127"
          landmarkName = "-saveContext"
          landmarkType = "5">
       </FileBreakpoint>
@@ -396,12 +370,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "NCAssistance/View Controllers/MainViewController.m"
-         timestampString = "390542045.485078"
+         timestampString = "390551268.08051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "300"
-         endingLineNumber = "300"
+         startingLineNumber = "327"
+         endingLineNumber = "327"
          landmarkName = "-deletePassword:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "NCAssistance/View Controllers/MainViewController.m"
+         timestampString = "390551262.923848"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "204"
+         endingLineNumber = "204"
+         landmarkName = "-done:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "NCAssistance/View Controllers/ResetPasswordViewController.m"
+         timestampString = "390557879.430309"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
+         landmarkName = "-doneAction"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

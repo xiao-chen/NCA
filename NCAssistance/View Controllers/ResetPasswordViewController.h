@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResetPasswordViewController : UIViewController
+@interface ResetPasswordViewController : UIViewController <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *passwordIn;
+@property (weak, nonatomic) IBOutlet UITextField *confirmIn;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBtn;
+
+- (IBAction)doneAction;
 
 @end

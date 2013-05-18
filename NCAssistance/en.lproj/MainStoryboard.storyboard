@@ -275,7 +275,7 @@
                     <toolbarItems>
                         <barButtonItem systemItem="search" id="jcA-nf-EiP">
                             <connections>
-                                <segue destination="a0H-Wr-ZlU" kind="push" id="LCV-GQ-q6M"/>
+                                <segue destination="a0H-Wr-ZlU" kind="push" id="IH7-FL-ck0"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -508,27 +508,89 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Qc-dH-auY">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Cq-nV-Z8c">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="bY3-JQ-mD7"/>
+                                    <constraint firstAttribute="width" constant="147" id="RVZ-h5-iB2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="xz7-bp-6cM" id="zFE-QC-D1Y"/>
+                                </connections>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Please remember your password. You will be asked for this password everytime you access NCA." translatesAutoresizingMaskIntoConstraints="NO" id="LrF-vn-QvN">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="8XJ-b8-Lyi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enter Password:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zea-8P-E6j">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="QRp-X2-4Gz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="72h-4z-MWr">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="xz7-bp-6cM" id="EnK-t9-7uF"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Confirm Password:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmK-4e-gbK">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="144" id="7JX-q7-BY2"/>
+                                    <constraint firstAttribute="height" constant="21" id="YOK-L5-17Q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3Qc-dH-auY" firstAttribute="top" secondItem="ubL-kX-D10" secondAttribute="top" constant="183" id="qBf-C0-pe6"/>
-                            <constraint firstItem="3Qc-dH-auY" firstAttribute="centerX" secondItem="ubL-kX-D10" secondAttribute="centerX" type="default" id="zAQ-9b-kF6"/>
+                            <constraint firstItem="Zea-8P-E6j" firstAttribute="top" secondItem="ubL-kX-D10" secondAttribute="top" constant="114" id="3kd-3z-68A"/>
+                            <constraint firstItem="mmK-4e-gbK" firstAttribute="leading" secondItem="ubL-kX-D10" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ORV-L6-XAg"/>
+                            <constraint firstAttribute="trailing" secondItem="72h-4z-MWr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="QQm-EF-pLZ"/>
+                            <constraint firstItem="Zea-8P-E6j" firstAttribute="leading" secondItem="ubL-kX-D10" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="XwM-dN-fP8"/>
+                            <constraint firstItem="LrF-vn-QvN" firstAttribute="top" secondItem="ubL-kX-D10" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ZKN-Xs-cRb"/>
+                            <constraint firstAttribute="trailing" secondItem="LrF-vn-QvN" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="asB-Wt-Js9"/>
+                            <constraint firstItem="LrF-vn-QvN" firstAttribute="leading" secondItem="ubL-kX-D10" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="dpc-OY-dmq"/>
+                            <constraint firstAttribute="trailing" secondItem="4Cq-nV-Z8c" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="g6x-eC-H34"/>
+                            <constraint firstItem="72h-4z-MWr" firstAttribute="top" secondItem="ubL-kX-D10" secondAttribute="top" constant="153" id="i5r-xb-PCo"/>
+                            <constraint firstItem="mmK-4e-gbK" firstAttribute="top" secondItem="ubL-kX-D10" secondAttribute="top" constant="157" id="pAK-UE-LOv"/>
+                            <constraint firstItem="4Cq-nV-Z8c" firstAttribute="top" secondItem="LrF-vn-QvN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="tmb-h1-ImE"/>
+                            <constraint firstItem="72h-4z-MWr" firstAttribute="leading" secondItem="4Cq-nV-Z8c" secondAttribute="leading" type="default" id="xJV-eB-MKC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="PXE-Kb-u3B"/>
+                    <navigationItem key="navigationItem" id="PXE-Kb-u3B">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="o1a-yr-WqW">
+                            <connections>
+                                <segue destination="VCD-ob-tgV" kind="unwind" unwindAction="back2Settings:" id="hN7-O1-sFw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="iUM-Ra-0Jq">
+                            <connections>
+                                <segue destination="VCD-ob-tgV" kind="unwind" identifier="ChangePassword" unwindAction="done:" id="m5q-af-yQY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="confirmIn" destination="72h-4z-MWr" id="yFv-50-QuJ"/>
+                        <outlet property="passwordIn" destination="4Cq-nV-Z8c" id="oyG-Zw-bTd"/>
+                        <outlet property="saveBtn" destination="iUM-Ra-0Jq" id="7T3-Fm-1n4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MmL-r4-bCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="VCD-ob-tgV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1313" y="860"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings View Controller - Settings-->
         <scene sceneID="5OM-lz-Xtg">
             <objects>
                 <tableViewController id="a0H-Wr-ZlU" customClass="SettingsViewController" sceneMemberID="viewController">
@@ -612,6 +674,32 @@
                                             <constraint firstItem="PZF-Gx-oSd" firstAttribute="leading" secondItem="xmQ-76-ZLn" secondAttribute="leading" constant="20" type="default" id="X4v-CZ-rKh"/>
                                         </constraints>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aSK-aN-fcj">
+                                        <rect key="frame" x="0.0" y="176" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reset Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahe-cd-EQu">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="126" id="n1t-c4-wPo"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="ahe-cd-EQu" firstAttribute="top" secondItem="aSK-aN-fcj" secondAttribute="top" constant="11" id="Vum-LE-Kwo"/>
+                                            <constraint firstItem="ahe-cd-EQu" firstAttribute="leading" secondItem="aSK-aN-fcj" secondAttribute="leading" constant="20" type="default" id="oev-ml-SiF"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="xz7-bp-6cM" kind="push" identifier="ShowChangePassword" id="8wS-io-R00"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -620,17 +708,14 @@
                             <outlet property="delegate" destination="a0H-Wr-ZlU" id="bPE-Ey-uOu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Y7l-Z0-g1h">
-                        <barButtonItem key="rightBarButtonItem" title="Reset" id="1Hv-K9-yu0">
-                            <connections>
-                                <segue destination="xz7-bp-6cM" kind="push" id="mhT-nM-5Vq"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Settings" id="Y7l-Z0-g1h">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="YAQ-dM-hEP"/>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZj-vu-kWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839" y="148"/>
+            <point key="canvasLocation" x="1303" y="146"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PuC-O1-3is">
@@ -921,74 +1006,6 @@
             <point key="canvasLocation" x="261" y="-551"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AddViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="doneAction"/>
-                <relationship kind="outlet" name="doneBtn" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="notesIn" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordIn" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="titleIn" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="userIn" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="websiteIn" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="DetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="outlet" name="delegate"/>
-                <relationship kind="outlet" name="notesTxt" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="passwordLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="usernameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="websiteLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="EditViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="deleteAction:"/>
-                <relationship kind="action" name="doneAction"/>
-                <relationship kind="outlet" name="delegate"/>
-                <relationship kind="outlet" name="deleteBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="doneBtn" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="notesIn" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordIn" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="titleIn" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="userIn" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="websiteIn" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RecordCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="notesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ResetPasswordViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResetPasswordViewController.h"/>
-        </class>
-        <class className="SettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
