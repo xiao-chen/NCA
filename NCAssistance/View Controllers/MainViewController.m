@@ -162,6 +162,10 @@
     if ([[segue identifier] isEqualToString:@"ShowDetails"]) {
         DetailViewController *dvc = [segue destinationViewController];
         dvc.record = (Password *)[self.aPasswords objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+
+        // record this visit
+        [(Password *)dvc.record setVisitctr:[NSNumber numberWithInt:[[(Password *)dvc.record visitctr] intValue] + 1]];
+        [(Password *)dvc.record setVisitdt: [NSDate date]];
         dvc.delegate = self;
     }
 }
@@ -272,6 +276,8 @@
 	[item setPassword: pswd];
     [item setWebsite:website];
     [item setNotes:notes];
+    [item setVisitctr:[NSNumber numberWithInt:0]];
+    [item setVisitdt:[NSDate date]];
     
 	if (![self saveContext]) {
     	// Handle the error.

@@ -40,6 +40,14 @@
     rootViewController.managedObjectContext = context;
     [self setMainViewControler:rootViewController];
     [self setBShowLockView:YES];
+    
+    // Create logs for debugging purpose
+    UIDevice *device = [UIDevice currentDevice];
+    if (![[device model] isEqualToString:@"iPad Simulator"] && ![[device model] isEqualToString:@"iPhone Simulator"]) {
+        // 开始保存日志文件
+        [self redirectNSlogToDocumentFolder];
+    }
+    
     return YES;
 }
 							
@@ -51,6 +59,8 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    // save
+    [self saveContext];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -105,8 +115,15 @@
             self.lockViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
             self.lockViewController.delegate = self.mainViewControler;
         }
+        // reset LockView's texts
+        self.lockViewController.hoverLbl.text = @"If you know the code...";
+        self.lockViewController.cast.text = @"You can cast your";
+        self.lockViewController.now.text = @"now...";
+        self.lockViewController.magic.text = @"BLACK MAGIC";
         self.lockViewController.codeIn.text = @"";
-        [topController presentViewController:self.lockViewController animated:NO completion:nil];
+        if (topController != self.lockViewController) {
+            [topController presentViewController:self.lockViewController animated:NO completion:nil];
+        }
     }
     else {      // login password not set, consider as first time login
         LoginViewController *lvc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
@@ -118,6 +135,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:
+    NSLog(@"APPLICATION WILL TERMINATE!!!!");
     // TODO!!
 }
 
@@ -212,6 +230,18 @@
     }
     
     return _persistentStoreCoordinator;
+}
+
+// redirect NSLog to Documents/NCA.log
+- (void)redirectNSlogToDocumentFolder
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [NSString stringWithFormat:@"NCA.log"];
+    NSString *logFilePath = [documentDirectory stringByAppendingPathComponent:fileName];
+
+    freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stdout);
+    freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stderr);
 }
 
 @end

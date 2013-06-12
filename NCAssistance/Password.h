@@ -2,7 +2,7 @@
 //  Password.h
 //  NCAssistance
 //
-//  Created by Yuyi Zhang on 5/4/13.
+//  Created by Yuyi Zhang on 6/12/13.
 //  Copyright (c) 2013 Camel. All rights reserved.
 //
 
@@ -12,10 +12,12 @@
 
 @interface Password : NSManagedObject
 
+@property (nonatomic, retain) NSString * notes;
+@property (nonatomic, retain) NSString * password;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * username;
-@property (nonatomic, retain) NSString * password;
 @property (nonatomic, retain) NSString * website;
-@property (nonatomic, retain) NSString * notes;
+@property (nonatomic, retain) NSNumber * visitctr;
+@property (nonatomic, retain) NSDate * visitdt;
 
 @end

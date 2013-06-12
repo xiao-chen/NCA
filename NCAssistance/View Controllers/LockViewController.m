@@ -12,9 +12,13 @@
 
 @interface LockViewController ()
 
+@property (nonatomic,assign) NSInteger failedLogins;
+
 @end
 
 @implementation LockViewController
+
+@synthesize failedLogins;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +33,33 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileDir = [documentsDirectory stringByAppendingPathComponent:@"loginAttempts"];
+    
+    NSFileManager *manager = [NSFileManager defaultManager];
+    if ([manager fileExistsAtPath:fileDir]) {
+        self.failedLogins = [[[NSString alloc]initWithContentsOfFile:fileDir encoding:NSUTF8StringEncoding error:nil] intValue];
+        if (self.failedLogins > 10) {
+            // file has sth wrong. Probably being hacked...
+            self.failedLogins = 10;
+        }
+    }
+    else {
+        self.failedLogins = 10;
+    }
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    // save failedLogins to disk
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileDir = [documentsDirectory stringByAppendingPathComponent:@"loginAttempts"];
+    [[[NSNumber numberWithInteger:self.failedLogins] stringValue] writeToFile:fileDir atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,13 +74,16 @@
         [textField resignFirstResponder];
         if (self.codeIn.text.length > 0) {
             if ([self.delegate verify:self.codeIn.text]) {
+                [self setFailedLogins:10];
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
             else {
+                self.failedLogins--;
                 self.hoverLbl.text = @"Oops, your password is wrong!";
                 self.cast.text = @"Don't do it wrong";
                 self.now.text = @"";
-                self.magic.text = @"9 LEFT";
+                self.magic.text = [[[NSNumber numberWithInteger: self.failedLogins] stringValue] stringByAppendingString:@" Attempts Left."];
+                self.codeIn.text = @"";
             }
         }
         else {

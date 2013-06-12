@@ -37,8 +37,26 @@
     }
     self.doneBtn.target = self;
     self.doneBtn.action = @selector(doneAction);
+}/*
+    UIView *newView = [[UIView alloc]initWithFrame:CGRectMake(10, 70, 300, 45)];
+    submit = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [submit setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    //[submit setTitleColor:[UIColor colorWithWhite:0.0 alpha:0.56] forState:UIControlStateDisabled];
+    [submit setTitle:@"Login" forState:UIControlStateNormal];
+    [submit.titleLabel setFont:[UIFont boldSystemFontOfSize:14]];
+    [submit setFrame:CGRectMake(10.0, 15.0, 280.0, 44.0)];
+    [newView addSubview:self.deleteBtn];
+    
+    [self.tableView setTableFooterView:newView];
+    
+    [super viewDidLoad];
+    
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    
+    return 50;
+}
+*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

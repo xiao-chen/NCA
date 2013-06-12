@@ -2,7 +2,7 @@
 //  Password.m
 //  NCAssistance
 //
-//  Created by Yuyi Zhang on 5/4/13.
+//  Created by Yuyi Zhang on 6/12/13.
 //  Copyright (c) 2013 Camel. All rights reserved.
 //
 
@@ -11,10 +11,12 @@
 
 @implementation Password
 
+@dynamic notes;
+@dynamic password;
 @dynamic title;
 @dynamic username;
-@dynamic password;
 @dynamic website;
-@dynamic notes;
+@dynamic visitdt;
+@dynamic visitctr;
 
 @end
