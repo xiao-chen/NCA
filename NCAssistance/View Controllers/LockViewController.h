@@ -24,4 +24,6 @@
 - (IBAction)touchUpOutside:(id)sender;  //todo
 - (IBAction)forgotPassword:(id)sender;
 
+-(void)saveAttempts;
+
 @end

@@ -12,5 +12,10 @@
 
 FOUNDATION_EXPORT NSString *const strAppUnlockTitle;
 FOUNDATION_EXPORT NSString *const strAppUnlockName;
+FOUNDATION_EXPORT NSString *const strAttemptsFileName;
+FOUNDATION_EXPORT NSString *const strLoginAttemptCtr;
+FOUNDATION_EXPORT NSString *const strLoginLstFailedDt;
+FOUNDATION_EXPORT NSString *const strSecurityAttemptCtr;
+FOUNDATION_EXPORT NSString *const strSeciurityLstFailedDt;
 
 @end

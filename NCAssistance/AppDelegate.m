@@ -11,6 +11,7 @@
 #import "LockViewController.h"
 #import "LoginViewController.h"
 #import "Constants.h"
+#import "Password.h"
 
 @interface AppDelegate()
 
@@ -61,6 +62,7 @@
 {
     // save
     [self saveContext];
+    [self.lockViewController saveAttempts];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -242,6 +244,34 @@
 
     freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stdout);
     freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stderr);
+}
+
+#pragma mark - ForgotPasswordViewController delegate
+- (Password *) retriveRecord
+{
+    // Search to see if login password is set
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Password" inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entity];
+    
+    //add predicates
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@ AND username = %@", strAppUnlockTitle, strAppUnlockName];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSMutableArray *mutableFetchResults = [[self.managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    if (mutableFetchResults == nil) {
+        // Handle the error.
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error"
+                                                        message:@"Fetching item failed."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Sigh..."
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+
+    Password * pswd = (Password *)[mutableFetchResults objectAtIndex:0];
+    return pswd;
 }
 
 @end

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "ForgotPasswordViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, ForgotPasswordViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -19,6 +20,6 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
+- (Password *) retriveRecord;
 
 @end
