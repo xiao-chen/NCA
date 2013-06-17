@@ -11,7 +11,8 @@
 @class Password;
 
 @protocol ForgotPasswordViewControllerDelegate
-- (Password *) retriveRecord;
+-(Password *) retriveRecord;
+-(void) dismissLockView;
 @end
 
 @interface ForgotPasswordViewController : UIViewController <UITextFieldDelegate>

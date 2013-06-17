@@ -274,4 +274,9 @@
     return pswd;
 }
 
+-(void) dismissLockView
+{
+    [self.lockViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end

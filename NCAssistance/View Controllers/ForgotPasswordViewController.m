@@ -80,6 +80,7 @@
         if ([self.answerIn.text isEqualToString:self.thePassword.notes]) {
             [self setFailedLogins:10];
             [self dismissViewControllerAnimated:YES completion:nil];
+            [NSTimer scheduledTimerWithTimeInterval:0.5 target:self.delegate selector:@selector(dismissLockView) userInfo:nil repeats:NO];
             return;
         }
         else {

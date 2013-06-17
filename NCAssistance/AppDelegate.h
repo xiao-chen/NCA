@@ -21,5 +21,6 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 - (Password *) retriveRecord;
+-(void) dismissLockView;
 
 @end
