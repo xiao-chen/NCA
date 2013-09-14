@@ -7,6 +7,7 @@
 //
 
 #import "CreditsViewController.h"
+#import "CreditsView.h"
 
 @interface CreditsViewController ()
 
@@ -25,17 +26,38 @@
 
 - (void)viewDidLoad
 {
-    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"html"];
-    NSString* htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
-    [self.webView loadHTMLString:htmlString baseURL:nil];
-
+    self.webView = [[CreditsView alloc] initWithFrame:CGRectMake(0,0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    if (self.webView) {
+        [self.view addSubview:self.webView];
+    }
     [super viewDidLoad];
+    
+    if (!self.scrollTimer)
+    {
+        [self setScrollTimer: [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(performAnimation) userInfo:nil repeats:YES]];
+    }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)performAnimation
+{
+    [self.webView.scrollView setContentOffset:CGPointMake(self.webView.scrollView.contentOffset.x, self.webView.scrollView.contentOffset.y + 10) animated:YES];
+}
+
+- (void) viewDidDisappear:(BOOL)animated
+{
+    if (self.scrollTimer) {
+        self.scrollTimer = nil;
+    }
+    
+    if (self.webView) {
+        self.webView = nil;
+    }
 }
 
 @end

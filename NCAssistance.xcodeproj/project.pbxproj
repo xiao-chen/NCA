@@ -30,6 +30,8 @@
 		0F21E29D1734C11F00A94369 /* Password.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F21E29C1734C11F00A94369 /* Password.m */; };
 		0F21E29F1734C1F100A94369 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F21E29E1734C1F100A94369 /* CoreData.framework */; };
 		0F4449C0173F8F5100695A4B /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4449BF173F8F5100695A4B /* EditViewController.m */; };
+		0F4D52C117E41E14002002CC /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D52C017E41E14002002CC /* Credits.html */; };
+		0F4D52C717E42A32002002CC /* CreditsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D52C617E42A32002002CC /* CreditsView.m */; };
 		0F73F9131746FCFE00EA270A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F73F9121746FCFE00EA270A /* SettingsViewController.m */; };
 		0F73F9161746FDE200EA270A /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F73F9151746FDE200EA270A /* ResetPasswordViewController.m */; };
 		0FABC6091737C8D000E4E98F /* LockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FABC6071737C8D000E4E98F /* LockViewController.m */; };
@@ -88,6 +90,9 @@
 		0F21E29E1734C1F100A94369 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0F4449BE173F8F5100695A4B /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditViewController.h; path = "View Controllers/EditViewController.h"; sourceTree = "<group>"; };
 		0F4449BF173F8F5100695A4B /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditViewController.m; path = "View Controllers/EditViewController.m"; sourceTree = "<group>"; };
+		0F4D52C017E41E14002002CC /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
+		0F4D52C517E42A31002002CC /* CreditsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsView.h; sourceTree = "<group>"; };
+		0F4D52C617E42A32002002CC /* CreditsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsView.m; sourceTree = "<group>"; };
 		0F73F9111746FCFE00EA270A /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = "View Controllers/SettingsViewController.h"; sourceTree = "<group>"; };
 		0F73F9121746FCFE00EA270A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = "View Controllers/SettingsViewController.m"; sourceTree = "<group>"; };
 		0F73F9141746FDE200EA270A /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResetPasswordViewController.h; path = "View Controllers/ResetPasswordViewController.h"; sourceTree = "<group>"; };
@@ -183,6 +188,7 @@
 		0F21E24B1734BE3400A94369 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0F4D52C017E41E14002002CC /* Credits.html */,
 				0F21E24C1734BE3400A94369 /* NCAssistance-Info.plist */,
 				0F21E24D1734BE3400A94369 /* InfoPlist.strings */,
 				0F21E2501734BE3400A94369 /* main.m */,
@@ -227,6 +233,8 @@
 			children = (
 				0FB2D78C176F47BF00C7166F /* AboutViewController.h */,
 				0FB2D78D176F47BF00C7166F /* AboutViewController.m */,
+				0F4D52C517E42A31002002CC /* CreditsView.h */,
+				0F4D52C617E42A32002002CC /* CreditsView.m */,
 				0FB2D78E176F47BF00C7166F /* CreditsViewController.h */,
 				0FB2D78F176F47BF00C7166F /* CreditsViewController.m */,
 				0FB2D790176F47BF00C7166F /* ForgotPasswordViewController.h */,
@@ -352,6 +360,7 @@
 				0FABC60A1737C8D000E4E98F /* LockViewController.xib in Resources */,
 				0FABC60F1737EF7000E4E98F /* LoginViewController.xib in Resources */,
 				0FB2D796176F47BF00C7166F /* ForgotPasswordViewController.xib in Resources */,
+				0F4D52C117E41E14002002CC /* Credits.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +412,7 @@
 				0FB2D793176F47BF00C7166F /* AboutViewController.m in Sources */,
 				0FB2D794176F47BF00C7166F /* CreditsViewController.m in Sources */,
 				0FB2D795176F47BF00C7166F /* ForgotPasswordViewController.m in Sources */,
+				0F4D52C717E42A32002002CC /* CreditsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +474,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -479,6 +490,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -495,6 +507,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -503,6 +516,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

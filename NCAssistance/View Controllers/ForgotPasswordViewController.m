@@ -76,6 +76,10 @@
 }
 
 - (IBAction)unlock:(id)sender {
+    if (0 == self.answerIn.text.length) {
+        return;
+    }
+    
     if (self.failedLogins > 0 && self.failedLogins <= 10) {
         if ([self.answerIn.text isEqualToString:self.thePassword.notes]) {
             [self setFailedLogins:10];
@@ -115,7 +119,7 @@
             }
         }
     
-        self.descTxt.text = [@"Wrong answer. Wait " stringByAppendingString:[[[NSNumber numberWithInteger:iHrPast] stringValue] stringByAppendingString:@" Hours to try again."]];
+        self.descTxt.text = [@"Please wait " stringByAppendingString:[[[NSNumber numberWithInteger:iHrPast] stringValue] stringByAppendingString:@" hours to try again."]];
     }
 
     [self saveAttempts];

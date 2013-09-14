@@ -136,7 +136,7 @@
     self.record.title = self.titleIn.text;
     self.record.username = self.userIn.text;
     self.record.password = self.passwordIn.text;
-    self.record.website = self.passwordIn.text;
+    self.record.website = self.websiteIn.text;
     self.record.notes = self.notesIn.text;
     [self performSegueWithIdentifier:@"DoneEditing" sender:self];
 }

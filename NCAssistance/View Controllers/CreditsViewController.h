@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class CreditsView;
+
 @interface CreditsViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) IBOutlet CreditsView *webView;
+@property (retain, nonatomic) NSTimer *scrollTimer;
 
 @end
