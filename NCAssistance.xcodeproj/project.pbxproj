@@ -12,9 +12,6 @@
 		0F21E2491734BE3400A94369 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F21E2481734BE3400A94369 /* CoreGraphics.framework */; };
 		0F21E24F1734BE3400A94369 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F21E24D1734BE3400A94369 /* InfoPlist.strings */; };
 		0F21E2511734BE3400A94369 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F21E2501734BE3400A94369 /* main.m */; };
-		0F21E2571734BE3400A94369 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F21E2561734BE3400A94369 /* Default.png */; };
-		0F21E2591734BE3400A94369 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F21E2581734BE3400A94369 /* Default@2x.png */; };
-		0F21E25B1734BE3400A94369 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F21E25A1734BE3400A94369 /* Default-568h@2x.png */; };
 		0F21E2691734BE3400A94369 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F21E2681734BE3400A94369 /* SenTestingKit.framework */; };
 		0F21E26A1734BE3400A94369 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F21E2441734BE3400A94369 /* UIKit.framework */; };
 		0F21E26B1734BE3400A94369 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F21E2461734BE3400A94369 /* Foundation.framework */; };
@@ -32,6 +29,12 @@
 		0F4449C0173F8F5100695A4B /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4449BF173F8F5100695A4B /* EditViewController.m */; };
 		0F4D52C117E41E14002002CC /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D52C017E41E14002002CC /* Credits.html */; };
 		0F4D52C717E42A32002002CC /* CreditsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D52C617E42A32002002CC /* CreditsView.m */; };
+		0F4D52C917E494B2002002CC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D52C817E494B1002002CC /* Default.png */; };
+		0F4D52CC17E4A3EC002002CC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D52CA17E494C0002002CC /* Default@2x.png */; };
+		0F4D52CE17E4A3F4002002CC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D52CD17E4A3F4002002CC /* Default-568h@2x.png */; };
+		0F4D52D017E53994002002CC /* About.html in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D52CF17E53994002002CC /* About.html */; };
+		0F4D52D417E5452A002002CC /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4D52D317E5452A002002CC /* FAQViewController.m */; };
+		0F4D52D617E5459A002002CC /* FAQ.html in Resources */ = {isa = PBXBuildFile; fileRef = 0F4D52D517E5459A002002CC /* FAQ.html */; };
 		0F73F9131746FCFE00EA270A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F73F9121746FCFE00EA270A /* SettingsViewController.m */; };
 		0F73F9161746FDE200EA270A /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F73F9151746FDE200EA270A /* ResetPasswordViewController.m */; };
 		0FABC6091737C8D000E4E98F /* LockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FABC6071737C8D000E4E98F /* LockViewController.m */; };
@@ -64,9 +67,6 @@
 		0F21E24E1734BE3400A94369 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0F21E2501734BE3400A94369 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F21E2521734BE3400A94369 /* NCAssistance-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NCAssistance-Prefix.pch"; sourceTree = "<group>"; };
-		0F21E2561734BE3400A94369 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		0F21E2581734BE3400A94369 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		0F21E25A1734BE3400A94369 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0F21E2671734BE3400A94369 /* NCAssistanceTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NCAssistanceTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F21E2681734BE3400A94369 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		0F21E2701734BE3400A94369 /* NCAssistanceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NCAssistanceTests-Info.plist"; sourceTree = "<group>"; };
@@ -93,6 +93,13 @@
 		0F4D52C017E41E14002002CC /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		0F4D52C517E42A31002002CC /* CreditsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsView.h; sourceTree = "<group>"; };
 		0F4D52C617E42A32002002CC /* CreditsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsView.m; sourceTree = "<group>"; };
+		0F4D52C817E494B1002002CC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		0F4D52CA17E494C0002002CC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		0F4D52CD17E4A3F4002002CC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		0F4D52CF17E53994002002CC /* About.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = About.html; sourceTree = "<group>"; };
+		0F4D52D217E5452A002002CC /* FAQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FAQViewController.h; path = "View Controllers/FAQViewController.h"; sourceTree = "<group>"; };
+		0F4D52D317E5452A002002CC /* FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FAQViewController.m; path = "View Controllers/FAQViewController.m"; sourceTree = "<group>"; };
+		0F4D52D517E5459A002002CC /* FAQ.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = FAQ.html; sourceTree = "<group>"; };
 		0F73F9111746FCFE00EA270A /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = "View Controllers/SettingsViewController.h"; sourceTree = "<group>"; };
 		0F73F9121746FCFE00EA270A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = "View Controllers/SettingsViewController.m"; sourceTree = "<group>"; };
 		0F73F9141746FDE200EA270A /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResetPasswordViewController.h; path = "View Controllers/ResetPasswordViewController.h"; sourceTree = "<group>"; };
@@ -188,14 +195,16 @@
 		0F21E24B1734BE3400A94369 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0F4D52CD17E4A3F4002002CC /* Default-568h@2x.png */,
+				0F4D52CA17E494C0002002CC /* Default@2x.png */,
+				0F4D52C817E494B1002002CC /* Default.png */,
+				0F4D52D517E5459A002002CC /* FAQ.html */,
+				0F4D52CF17E53994002002CC /* About.html */,
 				0F4D52C017E41E14002002CC /* Credits.html */,
 				0F21E24C1734BE3400A94369 /* NCAssistance-Info.plist */,
 				0F21E24D1734BE3400A94369 /* InfoPlist.strings */,
 				0F21E2501734BE3400A94369 /* main.m */,
 				0F21E2521734BE3400A94369 /* NCAssistance-Prefix.pch */,
-				0F21E2561734BE3400A94369 /* Default.png */,
-				0F21E2581734BE3400A94369 /* Default@2x.png */,
-				0F21E25A1734BE3400A94369 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -231,12 +240,7 @@
 		0F21E2801734BE5D00A94369 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0FB2D78C176F47BF00C7166F /* AboutViewController.h */,
-				0FB2D78D176F47BF00C7166F /* AboutViewController.m */,
-				0F4D52C517E42A31002002CC /* CreditsView.h */,
-				0F4D52C617E42A32002002CC /* CreditsView.m */,
-				0FB2D78E176F47BF00C7166F /* CreditsViewController.h */,
-				0FB2D78F176F47BF00C7166F /* CreditsViewController.m */,
+				0F4D52D117E544BE002002CC /* SettingsViewControllers */,
 				0FB2D790176F47BF00C7166F /* ForgotPasswordViewController.h */,
 				0FB2D791176F47BF00C7166F /* ForgotPasswordViewController.m */,
 				0FB2D792176F47BF00C7166F /* ForgotPasswordViewController.xib */,
@@ -254,10 +258,6 @@
 				0FABC60D1737EF7000E4E98F /* LoginViewController.xib */,
 				0F21E2881734BED300A94369 /* MainViewController.h */,
 				0F21E2891734BED300A94369 /* MainViewController.m */,
-				0F73F9141746FDE200EA270A /* ResetPasswordViewController.h */,
-				0F73F9151746FDE200EA270A /* ResetPasswordViewController.m */,
-				0F73F9111746FCFE00EA270A /* SettingsViewController.h */,
-				0F73F9121746FCFE00EA270A /* SettingsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -279,6 +279,25 @@
 				0F21E2931734BEFA00A94369 /* RecordCell.m */,
 			);
 			name = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		0F4D52D117E544BE002002CC /* SettingsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0F4D52D217E5452A002002CC /* FAQViewController.h */,
+				0F4D52D317E5452A002002CC /* FAQViewController.m */,
+				0F73F9141746FDE200EA270A /* ResetPasswordViewController.h */,
+				0F73F9151746FDE200EA270A /* ResetPasswordViewController.m */,
+				0F73F9111746FCFE00EA270A /* SettingsViewController.h */,
+				0F73F9121746FCFE00EA270A /* SettingsViewController.m */,
+				0FB2D78C176F47BF00C7166F /* AboutViewController.h */,
+				0FB2D78D176F47BF00C7166F /* AboutViewController.m */,
+				0F4D52C517E42A31002002CC /* CreditsView.h */,
+				0F4D52C617E42A32002002CC /* CreditsView.m */,
+				0FB2D78E176F47BF00C7166F /* CreditsViewController.h */,
+				0FB2D78F176F47BF00C7166F /* CreditsViewController.m */,
+			);
+			name = SettingsViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,14 +372,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F21E24F1734BE3400A94369 /* InfoPlist.strings in Resources */,
-				0F21E2571734BE3400A94369 /* Default.png in Resources */,
-				0F21E2591734BE3400A94369 /* Default@2x.png in Resources */,
-				0F21E25B1734BE3400A94369 /* Default-568h@2x.png in Resources */,
 				0F21E2971734BF2B00A94369 /* MainStoryboard.storyboard in Resources */,
 				0FABC60A1737C8D000E4E98F /* LockViewController.xib in Resources */,
 				0FABC60F1737EF7000E4E98F /* LoginViewController.xib in Resources */,
 				0FB2D796176F47BF00C7166F /* ForgotPasswordViewController.xib in Resources */,
 				0F4D52C117E41E14002002CC /* Credits.html in Resources */,
+				0F4D52C917E494B2002002CC /* Default.png in Resources */,
+				0F4D52CC17E4A3EC002002CC /* Default@2x.png in Resources */,
+				0F4D52CE17E4A3F4002002CC /* Default-568h@2x.png in Resources */,
+				0F4D52D017E53994002002CC /* About.html in Resources */,
+				0F4D52D617E5459A002002CC /* FAQ.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +434,7 @@
 				0FB2D794176F47BF00C7166F /* CreditsViewController.m in Sources */,
 				0FB2D795176F47BF00C7166F /* ForgotPasswordViewController.m in Sources */,
 				0F4D52C717E42A32002002CC /* CreditsView.m in Sources */,
+				0F4D52D417E5452A002002CC /* FAQViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +496,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: XIAO CHEN (62CZ7XPB32)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -507,7 +529,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: XIAO CHEN (62CZ7XPB32)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -528,6 +550,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NCAssistance/NCAssistance-Prefix.pch";
 				INFOPLIST_FILE = "NCAssistance/NCAssistance-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -539,6 +562,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NCAssistance/NCAssistance-Prefix.pch";
 				INFOPLIST_FILE = "NCAssistance/NCAssistance-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

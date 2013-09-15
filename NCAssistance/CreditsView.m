@@ -29,11 +29,11 @@
         NSString* htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
         
         // Dynamically sets place holder heights
-        NSString *strHeight = [NSString stringWithFormat: @"%.0f", self.bounds.size.height - 100];
+        NSString *strHeight = [NSString stringWithFormat: @"%.0f", self.bounds.size.height - 62];
         htmlString = [htmlString stringByReplacingOccurrencesOfString:@"%PLACEHOLDER_HEADER_HEIGHT%" withString:strHeight];
-        strHeight = [NSString stringWithFormat: @"%.0f", self.bounds.size.height];
+        strHeight = [NSString stringWithFormat: @"%.0f", self.bounds.size.height - 10];
         htmlString = [htmlString stringByReplacingOccurrencesOfString:@"%PLACEHOLDER_FOOTER_HEIGHT%" withString:strHeight];
-        NSLog(@"%@", htmlString);
+
         [self loadHTMLString:htmlString baseURL:nil];
         
         self.scrollView.bounces = NO;

@@ -223,7 +223,7 @@
             <objects>
                 <tableViewController id="XN6-IM-Mnu" customClass="MainViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Nan-w0-S1S">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -286,7 +286,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRU-h6-Pug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -297,7 +297,7 @@
             <objects>
                 <tableViewController id="PHk-zk-v6p" customClass="DetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="i6a-h6-hsr">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -505,7 +505,7 @@
             <objects>
                 <viewController id="xz7-bp-6cM" customClass="ResetPasswordViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ubL-kX-D10">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Cq-nV-Z8c">
@@ -596,7 +596,7 @@
             <objects>
                 <tableViewController id="a0H-Wr-ZlU" customClass="SettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SPm-Cu-BgN">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -654,11 +654,11 @@
                                             <segue destination="SNR-cB-1wg" kind="push" id="Gcs-zI-cHg"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="haz-AJ-Wxb">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="haz-AJ-Wxb">
                                         <rect key="frame" x="0.0" y="88" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FAQ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAF-Ek-MpP">
@@ -676,6 +676,9 @@
                                             <constraint firstItem="PAF-Ek-MpP" firstAttribute="leading" secondItem="haz-AJ-Wxb" secondAttribute="leading" constant="20" type="default" id="fUo-dR-lyn"/>
                                             <constraint firstItem="PAF-Ek-MpP" firstAttribute="top" secondItem="haz-AJ-Wxb" secondAttribute="top" constant="11" id="ymj-5i-PDs"/>
                                         </constraints>
+                                        <connections>
+                                            <segue destination="PG5-yU-H3B" kind="push" id="RCk-gg-qE1"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aSK-aN-fcj">
                                         <rect key="frame" x="0.0" y="132" width="320" height="44"/>
@@ -725,11 +728,13 @@
             <objects>
                 <viewController id="SNR-cB-1wg" customClass="CreditsViewController" sceneMemberID="viewController">
                     <webView key="view" contentMode="scaleToFill" id="GXY-TL-7Ds" customClass="CreditsView">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </webView>
-                    <navigationItem key="navigationItem" id="QeA-we-8ev"/>
+                    <navigationItem key="navigationItem" id="QeA-we-8ev">
+                        <barButtonItem key="backBarButtonItem" title="Settings" id="qOY-nS-iEd"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="webView" destination="GXY-TL-7Ds" id="D3a-i8-zYt"/>
                     </connections>
@@ -742,12 +747,17 @@
         <scene sceneID="ZAb-Dx-JIj">
             <objects>
                 <viewController id="XXX-ct-rnP" customClass="AboutViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="sd1-J1-jMx">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="0Zr-r7-Efc"/>
+                    <webView key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="7uD-8A-5Ax">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </webView>
+                    <navigationItem key="navigationItem" id="0Zr-r7-Efc">
+                        <barButtonItem key="backBarButtonItem" title="Settings" id="uGz-2F-EuN"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="7uD-8A-5Ax" id="QBV-37-EeQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IXJ-Ls-BJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -756,9 +766,10 @@
         <!--Navigation Controller-->
         <scene sceneID="PuC-O1-3is">
             <objects>
-                <navigationController toolbarHidden="NO" id="hvX-op-Uht" sceneMemberID="viewController">
+                <navigationController id="hvX-op-Uht" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="yvE-Ka-ILw"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sII-YB-L2P">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1041,7 +1052,125 @@
             </objects>
             <point key="canvasLocation" x="261" y="-551"/>
         </scene>
+        <!--FAQ View Controller-->
+        <scene sceneID="hR8-5S-zd6">
+            <objects>
+                <viewController id="PG5-yU-H3B" userLabel="FAQ View Controller" customClass="FAQViewController" sceneMemberID="viewController">
+                    <webView key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="1m2-Bk-rAX">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </webView>
+                    <navigationItem key="navigationItem" title="FAQ" id="JsT-XU-pHT">
+                        <barButtonItem key="backBarButtonItem" title="Settings" id="itT-TZ-dnu"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="1m2-Bk-rAX" id="U6z-va-Z4J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uNQ-Oo-o2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1324" y="-551"/>
+        </scene>
     </scenes>
+    <classes>
+        <class className="AboutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="AddViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneAction"/>
+                <relationship kind="outlet" name="doneBtn" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="notesIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="websiteIn" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CreditsView" superclassName="UIWebView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CreditsView.h"/>
+        </class>
+        <class className="CreditsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CreditsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="CreditsView"/>
+            </relationships>
+        </class>
+        <class className="DetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="delegate"/>
+                <relationship kind="outlet" name="notesTxt" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="passwordLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="usernameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="websiteLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EditViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="deleteAction:"/>
+                <relationship kind="action" name="doneAction"/>
+                <relationship kind="outlet" name="delegate"/>
+                <relationship kind="outlet" name="deleteBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="doneBtn" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="notesIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="websiteIn" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="FAQViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FAQViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="MainViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RecordCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="notesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ResetPasswordViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResetPasswordViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneAction"/>
+                <relationship kind="outlet" name="confirmIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordIn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="saveBtn" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="SettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back2Settings:" candidateClass="UIStoryboardSegue"/>
+            </relationships>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
