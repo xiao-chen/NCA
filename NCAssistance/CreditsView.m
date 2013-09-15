@@ -21,11 +21,19 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self.lastScrollingIndex = 0;
+    self.bIsDragging = NO;
     
     self = [super initWithFrame:frame];
     if (self) {
         NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"html"];
         NSString* htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
+        
+        // Dynamically sets place holder heights
+        NSString *strHeight = [NSString stringWithFormat: @"%.0f", self.bounds.size.height - 100];
+        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"%PLACEHOLDER_HEADER_HEIGHT%" withString:strHeight];
+        strHeight = [NSString stringWithFormat: @"%.0f", self.bounds.size.height];
+        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"%PLACEHOLDER_FOOTER_HEIGHT%" withString:strHeight];
+        NSLog(@"%@", htmlString);
         [self loadHTMLString:htmlString baseURL:nil];
         
         self.scrollView.bounces = NO;
@@ -52,7 +60,7 @@
         return;     // Do not save this scroll for comparison
     }
     if (!self.bScrollingUp && self.scrollView.contentOffset.y >= self.scrollView.contentSize.height - self.bounds.size.height) {
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 0.0) animated:NO];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 1.0) animated:NO];
         return;     // Do not save this scroll for comparison
     }
     
@@ -65,6 +73,16 @@
     }
     [self setLastScrollingIndex:self.scrollView.contentOffset.y];
     
+}
+
+- (void) scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    self.bIsDragging = YES;
+}
+
+- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    self.bIsDragging = NO;
 }
 
 @end

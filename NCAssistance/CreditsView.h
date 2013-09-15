@@ -10,4 +10,6 @@
 
 @interface CreditsView : UIWebView
 
+@property (assign, nonatomic) BOOL bIsDragging;
+
 @end

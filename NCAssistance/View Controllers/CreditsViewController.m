@@ -46,7 +46,10 @@
 
 - (void)performAnimation
 {
-    [self.webView.scrollView setContentOffset:CGPointMake(self.webView.scrollView.contentOffset.x, self.webView.scrollView.contentOffset.y + 10) animated:YES];
+    if (!self.webView.bIsDragging)
+    {
+        [self.webView.scrollView setContentOffset:CGPointMake(self.webView.scrollView.contentOffset.x, self.webView.scrollView.contentOffset.y + 10) animated:YES];
+    }
 }
 
 - (void) viewDidDisappear:(BOOL)animated
