@@ -151,7 +151,12 @@
                 self.cast.text = @"You have to wait";
                 self.now.text = @"to try again...";
                 
-                self.magic.text = [[[NSNumber numberWithInteger:iHrPast] stringValue] stringByAppendingString:@" Hours"];
+                if (1 == iHrPast) {
+                    self.magic.text = [[[NSNumber numberWithInteger:iHrPast] stringValue] stringByAppendingString:@" Hour"];
+                }
+                else {
+                    self.magic.text = [[[NSNumber numberWithInteger:iHrPast] stringValue] stringByAppendingString:@" Hours"];
+                }
                 self.codeIn.text = @"";
             }
         }
