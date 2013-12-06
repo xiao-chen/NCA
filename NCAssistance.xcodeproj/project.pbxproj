@@ -104,6 +104,12 @@
 		0F73F9121746FCFE00EA270A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = "View Controllers/SettingsViewController.m"; sourceTree = "<group>"; };
 		0F73F9141746FDE200EA270A /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResetPasswordViewController.h; path = "View Controllers/ResetPasswordViewController.h"; sourceTree = "<group>"; };
 		0F73F9151746FDE200EA270A /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResetPasswordViewController.m; path = "View Controllers/ResetPasswordViewController.m"; sourceTree = "<group>"; };
+		0F88280618520C51000FD2C3 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = icons/icon57.png; sourceTree = "<group>"; };
+		0F88280818520CA1000FD2C3 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = icons/icon114.png; sourceTree = "<group>"; };
+		0F88280918520CAD000FD2C3 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon120.png; path = icons/icon120.png; sourceTree = "<group>"; };
+		0F88280A18520CB9000FD2C3 /* icon29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon29.png; path = icons/icon29.png; sourceTree = "<group>"; };
+		0F88280B18520CC4000FD2C3 /* icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon58.png; path = icons/icon58.png; sourceTree = "<group>"; };
+		0F88280C18520CD6000FD2C3 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon80.png; path = icons/icon80.png; sourceTree = "<group>"; };
 		0FABC6061737C8D000E4E98F /* LockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LockViewController.h; path = "View Controllers/LockViewController.h"; sourceTree = "<group>"; };
 		0FABC6071737C8D000E4E98F /* LockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LockViewController.m; path = "View Controllers/LockViewController.m"; sourceTree = "<group>"; };
 		0FABC6081737C8D000E4E98F /* LockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LockViewController.xib; path = "View Controllers/LockViewController.xib"; sourceTree = "<group>"; };
@@ -195,6 +201,7 @@
 		0F21E24B1734BE3400A94369 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0F88280718520C6A000FD2C3 /* icons */,
 				0F4D52CD17E4A3F4002002CC /* Default-568h@2x.png */,
 				0F4D52CA17E494C0002002CC /* Default@2x.png */,
 				0F4D52C817E494B1002002CC /* Default.png */,
@@ -300,6 +307,19 @@
 			name = SettingsViewControllers;
 			sourceTree = "<group>";
 		};
+		0F88280718520C6A000FD2C3 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				0F88280C18520CD6000FD2C3 /* icon80.png */,
+				0F88280B18520CC4000FD2C3 /* icon58.png */,
+				0F88280A18520CB9000FD2C3 /* icon29.png */,
+				0F88280918520CAD000FD2C3 /* icon120.png */,
+				0F88280818520CA1000FD2C3 /* icon114.png */,
+				0F88280618520C51000FD2C3 /* icon57.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -347,6 +367,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Xiao;
+				TargetAttributes = {
+					0F21E2401734BE3400A94369 = {
+						DevelopmentTeam = 7YLERHSMSK;
+					};
+				};
 			};
 			buildConfigurationList = 0F21E23C1734BE3400A94369 /* Build configuration list for PBXProject "NCAssistance" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -547,6 +572,7 @@
 		0F21E27A1734BE3400A94369 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NCAssistance/NCAssistance-Prefix.pch";
 				INFOPLIST_FILE = "NCAssistance/NCAssistance-Info.plist";
@@ -559,6 +585,7 @@
 		0F21E27B1734BE3400A94369 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NCAssistance/NCAssistance-Prefix.pch";
 				INFOPLIST_FILE = "NCAssistance/NCAssistance-Info.plist";
