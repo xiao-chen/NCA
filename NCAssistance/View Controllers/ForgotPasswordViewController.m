@@ -12,9 +12,10 @@
 
 @interface ForgotPasswordViewController ()
 
-@property (nonatomic, retain) Password * thePassword;
+@property (nonatomic,retain) Password * thePassword;
 @property (nonatomic,assign) NSInteger failedLogins;
 @property (nonatomic,retain) NSDate *lastFailedDate;
+@property (nonatomic,assign) BOOL m_bShouldUnlock;
 
 @end
 
@@ -26,6 +27,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self.m_bShouldUnlock = NO;
     return self;
 }
 
@@ -33,11 +35,11 @@
 {
     [super viewDidLoad];
     
+    self.m_bShouldUnlock = NO;
     if (!self.thePassword) {
         self.thePassword = [self.delegate retriveRecord];
     }
     self.question.text = self.thePassword.website;
-    
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -64,6 +66,14 @@
     }
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    if (self.m_bShouldUnlock) {
+        [NSTimer scheduledTimerWithTimeInterval:0.2 target:self.delegate selector:@selector(dismissLockView) userInfo:nil repeats:NO];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -83,14 +93,15 @@
     if (self.failedLogins > 0 && self.failedLogins <= 10) {
         if ([self.answerIn.text isEqualToString:self.thePassword.notes]) {
             [self setFailedLogins:10];
+            self.m_bShouldUnlock = YES;
             [self dismissViewControllerAnimated:YES completion:nil];
-            [NSTimer scheduledTimerWithTimeInterval:0.5 target:self.delegate selector:@selector(dismissLockView) userInfo:nil repeats:NO];
             return;
         }
         else {
             self.failedLogins--;
             self.lastFailedDate = [NSDate date];
             self.descTxt.text = [@"Wrong anwser. " stringByAppendingString:[[[NSNumber numberWithInteger: self.failedLogins] stringValue] stringByAppendingString:@" Attempts Left."]];
+            [self.descTxt setFont:[UIFont boldSystemFontOfSize:15]];
         }
     }
     else {
