@@ -12,7 +12,6 @@
 		0F21E2491734BE3400A94369 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F21E2481734BE3400A94369 /* CoreGraphics.framework */; };
 		0F21E24F1734BE3400A94369 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F21E24D1734BE3400A94369 /* InfoPlist.strings */; };
 		0F21E2511734BE3400A94369 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F21E2501734BE3400A94369 /* main.m */; };
-		0F21E2691734BE3400A94369 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F21E2681734BE3400A94369 /* SenTestingKit.framework */; };
 		0F21E26A1734BE3400A94369 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F21E2441734BE3400A94369 /* UIKit.framework */; };
 		0F21E26B1734BE3400A94369 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F21E2461734BE3400A94369 /* Foundation.framework */; };
 		0F21E2731734BE3400A94369 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F21E2711734BE3400A94369 /* InfoPlist.strings */; };
@@ -69,7 +68,6 @@
 		0F21E2501734BE3400A94369 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F21E2521734BE3400A94369 /* NCAssistance-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NCAssistance-Prefix.pch"; sourceTree = "<group>"; };
 		0F21E2671734BE3400A94369 /* NCAssistanceTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NCAssistanceTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F21E2681734BE3400A94369 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		0F21E2701734BE3400A94369 /* NCAssistanceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NCAssistanceTests-Info.plist"; sourceTree = "<group>"; };
 		0F21E2721734BE3400A94369 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0F21E2741734BE3400A94369 /* NCAssistanceTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCAssistanceTests.h; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F21E2691734BE3400A94369 /* SenTestingKit.framework in Frameworks */,
 				0F21E26A1734BE3400A94369 /* UIKit.framework in Frameworks */,
 				0F21E26B1734BE3400A94369 /* Foundation.framework in Frameworks */,
 			);
@@ -180,7 +177,6 @@
 				0F21E2441734BE3400A94369 /* UIKit.framework */,
 				0F21E2461734BE3400A94369 /* Foundation.framework */,
 				0F21E2481734BE3400A94369 /* CoreGraphics.framework */,
-				0F21E2681734BE3400A94369 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -360,7 +356,7 @@
 			name = NCAssistanceTests;
 			productName = NCAssistanceTests;
 			productReference = 0F21E2671734BE3400A94369 /* NCAssistanceTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -368,6 +364,7 @@
 		0F21E2391734BE3400A94369 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0610;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Xiao;
 				TargetAttributes = {
@@ -615,13 +612,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NCAssistance/NCAssistance-Prefix.pch";
 				INFOPLIST_FILE = "NCAssistanceTests/NCAssistanceTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -632,13 +629,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NCAssistance/NCAssistance-Prefix.pch";
 				INFOPLIST_FILE = "NCAssistanceTests/NCAssistanceTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

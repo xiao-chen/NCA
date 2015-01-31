@@ -92,7 +92,7 @@
         secDt = [NSDate date];
     }
     
-    [dict setValue:[NSNumber numberWithInt: self.failedLogins] forKey:strLoginAttemptCtr];
+    [dict setValue:[NSNumber numberWithLong: self.failedLogins] forKey:strLoginAttemptCtr];
     [dict setValue:self.lastFailedDate forKey:strLoginLstFailedDt];
     [dict setValue:[NSNumber numberWithInt:secCtr] forKey:strSecurityAttemptCtr];
     [dict setValue:secDt forKey:strSeciurityLstFailedDt];
@@ -133,7 +133,7 @@
                 // calculate how many hours past since lastFailedDate
                 NSCalendar *cal = [NSCalendar currentCalendar];
                 NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:self.lastFailedDate toDate:[NSDate date] options:0];
-                int iHrPast = 24 - [components hour];
+                long iHrPast = 24 - [components hour];
                 if (iHrPast <= 0) {
                     if ([self.delegate verify:self.codeIn.text]) {
                         [self setFailedLogins:10];

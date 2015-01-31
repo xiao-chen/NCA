@@ -115,7 +115,7 @@
         // calculate how many hours past since lastFailedDate
         NSCalendar *cal = [NSCalendar currentCalendar];
         NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:self.lastFailedDate toDate:[NSDate date] options:0];
-        int iHrPast = 24 - [components hour];
+        long iHrPast = 24 - [components hour];
 
         if (iHrPast <= 0) {
             if ([self.answerIn.text isEqualToString:self.thePassword.notes]) {
@@ -156,7 +156,7 @@
     
     [dict setValue:[NSNumber numberWithInt: lockCtr] forKey:strLoginAttemptCtr];
     [dict setValue:lockDt forKey:strLoginLstFailedDt];
-    [dict setValue:[NSNumber numberWithInt: self.failedLogins] forKey:strSecurityAttemptCtr];
+    [dict setValue:[NSNumber numberWithLong: self.failedLogins] forKey:strSecurityAttemptCtr];
     [dict setValue:self.lastFailedDate forKey:strSeciurityLstFailedDt];
     
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:strAttemptsFileName];
