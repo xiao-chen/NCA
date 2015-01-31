@@ -238,7 +238,7 @@
 - (void)redirectNSlogToDocumentFolder
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentDirectory = [paths objectAtIndex:0];
+    NSString *documentDirectory = paths[0];
     NSString *fileName = [NSString stringWithFormat:@"NCA.log"];
     NSString *logFilePath = [documentDirectory stringByAppendingPathComponent:fileName];
 
@@ -270,7 +270,7 @@
         [alert show];
     }
 
-    Password * pswd = (Password *)[mutableFetchResults objectAtIndex:0];
+    Password * pswd = (Password *)mutableFetchResults[0];
     return pswd;
 }
 

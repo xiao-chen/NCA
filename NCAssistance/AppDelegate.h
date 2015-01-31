@@ -20,8 +20,8 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 - (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
-- (Password *) retriveRecord;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSURL *applicationDocumentsDirectory;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) Password *retriveRecord;
 -(void) dismissLockView;
 
 @end

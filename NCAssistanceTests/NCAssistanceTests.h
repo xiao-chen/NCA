@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Camel. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface NCAssistanceTests : SenTestCase
+@interface NCAssistanceTests : XCTestCase
 
 @end

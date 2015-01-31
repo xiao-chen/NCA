@@ -23,7 +23,7 @@
 @synthesize failedLogins;
 @synthesize lastFailedDate;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -38,14 +38,14 @@
     // Do any additional setup after loading the view from its nib.
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = paths[0];
     NSString *fileDir = [documentsDirectory stringByAppendingPathComponent:strAttemptsFileName];
     
     NSFileManager *manager = [NSFileManager defaultManager];
     if ([manager fileExistsAtPath:fileDir]) {
         NSMutableDictionary *dict = [[NSDictionary dictionaryWithContentsOfFile:fileDir] mutableCopy];
-        self.failedLogins = [[dict objectForKey:strLoginAttemptCtr] intValue];
-        self.lastFailedDate = [dict objectForKey:strLoginLstFailedDt];
+        self.failedLogins = [dict[strLoginAttemptCtr] intValue];
+        self.lastFailedDate = dict[strLoginLstFailedDt];
         
         if (self.failedLogins > 10) {
             // file has sth wrong. Probably being hacked...
@@ -78,23 +78,23 @@
 {
     // save failedLogins to disk
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = paths[0];
     NSString *fileDir = [documentsDirectory stringByAppendingPathComponent:strAttemptsFileName];
     NSMutableDictionary *dict = [[NSDictionary dictionaryWithContentsOfFile:fileDir] mutableCopy];
     if (!dict) {
         dict = [[NSMutableDictionary alloc] init];
-        [dict setValue:[NSNumber numberWithInt:10] forKey:strSecurityAttemptCtr];
+        [dict setValue:@10 forKey:strSecurityAttemptCtr];
     }
     
-    int secCtr = [[dict objectForKey:strSecurityAttemptCtr] intValue];
-    NSDate *secDt = [dict objectForKey:strSeciurityLstFailedDt];
+    int secCtr = [dict[strSecurityAttemptCtr] intValue];
+    NSDate *secDt = dict[strSeciurityLstFailedDt];
     if (!secDt) {
         secDt = [NSDate date];
     }
     
-    [dict setValue:[NSNumber numberWithLong: self.failedLogins] forKey:strLoginAttemptCtr];
+    [dict setValue:@(self.failedLogins) forKey:strLoginAttemptCtr];
     [dict setValue:self.lastFailedDate forKey:strLoginLstFailedDt];
-    [dict setValue:[NSNumber numberWithInt:secCtr] forKey:strSecurityAttemptCtr];
+    [dict setValue:@(secCtr) forKey:strSecurityAttemptCtr];
     [dict setValue:secDt forKey:strSeciurityLstFailedDt];
     
     if (![dict writeToFile:fileDir atomically:YES]) {
@@ -118,7 +118,7 @@
                     self.hoverLbl.text = @"Oops, your password is wrong!";
                     self.cast.text = @"Don't do it wrong";
                     self.now.text = @"";
-                    self.magic.text = [[[NSNumber numberWithInteger: self.failedLogins] stringValue] stringByAppendingString:@" Attempts Left."];
+                    self.magic.text = [[@(self.failedLogins) stringValue] stringByAppendingString:@" Attempts Left."];
                     self.codeIn.text = @"";
                 }
             }
@@ -152,10 +152,10 @@
                 self.now.text = @"to try again...";
                 
                 if (1 == iHrPast) {
-                    self.magic.text = [[[NSNumber numberWithInteger:iHrPast] stringValue] stringByAppendingString:@" Hour"];
+                    self.magic.text = [[@(iHrPast) stringValue] stringByAppendingString:@" Hour"];
                 }
                 else {
-                    self.magic.text = [[[NSNumber numberWithInteger:iHrPast] stringValue] stringByAppendingString:@" Hours"];
+                    self.magic.text = [[@(iHrPast) stringValue] stringByAppendingString:@" Hours"];
                 }
                 self.codeIn.text = @"";
             }

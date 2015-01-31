@@ -24,7 +24,7 @@
 @synthesize failedLogins;
 @synthesize lastFailedDate;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     self.m_bShouldUnlock = NO;
@@ -42,14 +42,14 @@
     self.question.text = self.thePassword.website;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = paths[0];
     NSString *fileDir = [documentsDirectory stringByAppendingPathComponent:strAttemptsFileName];
     
     NSFileManager *manager = [NSFileManager defaultManager];
     if ([manager fileExistsAtPath:fileDir]) {
         NSMutableDictionary *dict = [[NSDictionary dictionaryWithContentsOfFile:fileDir] mutableCopy];
-        self.failedLogins = [[dict objectForKey:strSecurityAttemptCtr] intValue];
-        self.lastFailedDate = [dict objectForKey:strSeciurityLstFailedDt];
+        self.failedLogins = [dict[strSecurityAttemptCtr] intValue];
+        self.lastFailedDate = dict[strSeciurityLstFailedDt];
         
         if (self.failedLogins > 10) {
             // file has sth wrong. Probably being hacked...
@@ -100,7 +100,7 @@
         else {
             self.failedLogins--;
             self.lastFailedDate = [NSDate date];
-            self.descTxt.text = [@"Wrong anwser. " stringByAppendingString:[[[NSNumber numberWithInteger: self.failedLogins] stringValue] stringByAppendingString:@" Attempts Left."]];
+            self.descTxt.text = [@"Wrong anwser. " stringByAppendingString:[[@(self.failedLogins) stringValue] stringByAppendingString:@" Attempts Left."]];
             [self.descTxt setFont:[UIFont boldSystemFontOfSize:15]];
         }
     }
@@ -130,7 +130,7 @@
             }
         }
     
-        self.descTxt.text = [@"Please wait " stringByAppendingString:[[[NSNumber numberWithInteger:iHrPast] stringValue] stringByAppendingString:@" hours to try again."]];
+        self.descTxt.text = [@"Please wait " stringByAppendingString:[[@(iHrPast) stringValue] stringByAppendingString:@" hours to try again."]];
     }
 
     [self saveAttempts];
@@ -140,23 +140,23 @@
 {
     // save failedLogins to disk
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = paths[0];
     NSString *fileDir = [documentsDirectory stringByAppendingPathComponent:strAttemptsFileName];
     NSMutableDictionary *dict = [[NSDictionary dictionaryWithContentsOfFile:fileDir] mutableCopy];
     if (!dict) {
         dict = [[NSMutableDictionary alloc] init];
-        [dict setValue:[NSNumber numberWithInt: 10] forKey:strLoginAttemptCtr];
+        [dict setValue:@10 forKey:strLoginAttemptCtr];
     }
     
-    int lockCtr = [[dict objectForKey:strLoginAttemptCtr] intValue];
-    NSDate *lockDt = [dict objectForKey:strLoginLstFailedDt];
+    int lockCtr = [dict[strLoginAttemptCtr] intValue];
+    NSDate *lockDt = dict[strLoginLstFailedDt];
     if (!lockDt) {
         lockDt = [NSDate date];
     }
     
-    [dict setValue:[NSNumber numberWithInt: lockCtr] forKey:strLoginAttemptCtr];
+    [dict setValue:@(lockCtr) forKey:strLoginAttemptCtr];
     [dict setValue:lockDt forKey:strLoginLstFailedDt];
-    [dict setValue:[NSNumber numberWithLong: self.failedLogins] forKey:strSecurityAttemptCtr];
+    [dict setValue:@(self.failedLogins) forKey:strSecurityAttemptCtr];
     [dict setValue:self.lastFailedDate forKey:strSeciurityLstFailedDt];
     
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:strAttemptsFileName];

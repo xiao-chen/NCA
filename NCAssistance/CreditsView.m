@@ -18,7 +18,7 @@
 
 @implementation CreditsView
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     self.lastScrollingIndex = 0;
     self.bIsDragging = NO;

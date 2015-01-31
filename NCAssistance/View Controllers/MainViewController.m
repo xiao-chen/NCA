@@ -24,7 +24,7 @@
 @synthesize aPasswords;
 @synthesize managedObjectContext;
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (instancetype)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
@@ -48,7 +48,7 @@
     
     // sorting
     NSSortDescriptor *sortDesc1 = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDesc1, nil];
+    NSArray *sortDescriptors = @[sortDesc1];
     [request setSortDescriptors:sortDescriptors];
     
     NSError *error = nil;
@@ -67,7 +67,7 @@
     
     if (self.aPasswords.count > 0) {
         for (int i=0; i < self.aPasswords.count; i++) {
-            if ([[(Password *)[self.aPasswords objectAtIndex:i] title] isEqualToString: strAppUnlockTitle] && [[(Password *)[self.aPasswords objectAtIndex:i] username] isEqualToString: strAppUnlockName]) {
+            if ([[(Password *)(self.aPasswords)[i] title] isEqualToString: strAppUnlockTitle] && [[(Password *)(self.aPasswords)[i] username] isEqualToString: strAppUnlockName]) {
                 // NCA password. Hidden
                 [self.aPasswords removeObjectAtIndex:i];
                 break;
@@ -111,7 +111,7 @@
         cell = [[RecordCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    Password *item = (Password *)[aPasswords objectAtIndex:indexPath.row];
+    Password *item = (Password *)aPasswords[indexPath.row];
     cell.titleLabel.text = [item title];
     cell.notesLabel.text = [item notes];
     NSLog(@"%@, %@, %@, %@, %@", item.title, item.username, item.password, item.website, item.notes);     //debug
@@ -161,10 +161,10 @@
 {
     if ([[segue identifier] isEqualToString:@"ShowDetails"]) {
         DetailViewController *dvc = [segue destinationViewController];
-        dvc.record = (Password *)[self.aPasswords objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        dvc.record = (Password *)(self.aPasswords)[[self.tableView indexPathForSelectedRow].row];
 
         // record this visit
-        [(Password *)dvc.record setVisitctr:[NSNumber numberWithInt:[[(Password *)dvc.record visitctr] intValue] + 1]];
+        [(Password *)dvc.record setVisitctr:@([[(Password *)dvc.record visitctr] intValue] + 1)];
         [(Password *)dvc.record setVisitdt: [NSDate date]];
         dvc.delegate = self;
     }
@@ -202,7 +202,7 @@
                 [alert show];
             }
             
-            pswd = (Password *)[mutableFetchResults objectAtIndex:0];
+            pswd = (Password *)mutableFetchResults[0];
         }
 
         ResetPasswordViewController *rpvc = [segue sourceViewController];
@@ -251,7 +251,7 @@
         [alert show];
     }
     
-    Password * pswd = (Password *)[mutableFetchResults objectAtIndex:0];
+    Password * pswd = (Password *)mutableFetchResults[0];
     if ([code isEqualToString: pswd.password]) {
         return YES;
     }
@@ -276,7 +276,7 @@
 	[item setPassword: pswd];
     [item setWebsite:website];
     [item setNotes:notes];
-    [item setVisitctr:[NSNumber numberWithInt:0]];
+    [item setVisitctr:@0];
     [item setVisitdt:[NSDate date]];
     
 	if (![self saveContext]) {
