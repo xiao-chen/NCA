@@ -71,7 +71,7 @@
     else {
         [self setBScrollingUp:NO];
     }
-    [self setLastScrollingIndex:self.scrollView.contentOffset.y];
+    self.lastScrollingIndex = self.scrollView.contentOffset.y;
     
 }
 

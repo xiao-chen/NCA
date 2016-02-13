@@ -43,8 +43,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"EditItem"]) {
-        UINavigationController *nc = [segue destinationViewController];
+    if ([segue.identifier isEqualToString:@"EditItem"]) {
+        UINavigationController *nc = segue.destinationViewController;
         EditViewController *evc = (EditViewController*) nc.topViewController;
         evc.delegate = (id)self.delegate;
         evc.record = self.record;
@@ -54,8 +54,8 @@
 #pragma mark - Unwind segues
 - (IBAction)done:(UIStoryboardSegue *)segue
 {
-    if ([[segue identifier] isEqualToString:@"DoneEditing"]) {
-        EditViewController *evc = (EditViewController*) [segue sourceViewController];
+    if ([segue.identifier isEqualToString:@"DoneEditing"]) {
+        EditViewController *evc = (EditViewController*) segue.sourceViewController;
         [self.delegate UpdateRecord:evc.record];
         [self reloadData];
     }
@@ -63,7 +63,7 @@
 
 - (IBAction)cancel:(UIStoryboardSegue *)segue
 {
-    if ([[segue identifier] isEqualToString:@"CancelEditing"]) {
+    if ([segue.identifier isEqualToString:@"CancelEditing"]) {
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
 }

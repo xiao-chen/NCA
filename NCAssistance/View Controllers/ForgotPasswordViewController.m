@@ -92,7 +92,7 @@
     
     if (self.failedLogins > 0 && self.failedLogins <= 10) {
         if ([self.answerIn.text isEqualToString:self.thePassword.notes]) {
-            [self setFailedLogins:10];
+            self.failedLogins = 10;
             self.m_bShouldUnlock = YES;
             [self dismissViewControllerAnimated:YES completion:nil];
             return;
@@ -100,26 +100,26 @@
         else {
             self.failedLogins--;
             self.lastFailedDate = [NSDate date];
-            self.descTxt.text = [@"Wrong anwser. " stringByAppendingString:[[@(self.failedLogins) stringValue] stringByAppendingString:@" Attempts Left."]];
-            [self.descTxt setFont:[UIFont boldSystemFontOfSize:15]];
+            self.descTxt.text = [@"Wrong anwser. " stringByAppendingString:[(@(self.failedLogins)).stringValue stringByAppendingString:@" Attempts Left."]];
+            (self.descTxt).font = [UIFont boldSystemFontOfSize:15];
         }
     }
     else {
         static NSDateFormatter *dateFormatter = nil;
         if (dateFormatter == nil) {
             dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-            [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+            dateFormatter.timeStyle = NSDateFormatterNoStyle;
+            dateFormatter.dateStyle = NSDateFormatterMediumStyle;
         }
     
         // calculate how many hours past since lastFailedDate
         NSCalendar *cal = [NSCalendar currentCalendar];
         NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:self.lastFailedDate toDate:[NSDate date] options:0];
-        long iHrPast = 24 - [components hour];
+        long iHrPast = 24 - components.hour;
 
         if (iHrPast <= 0) {
             if ([self.answerIn.text isEqualToString:self.thePassword.notes]) {
-                [self setFailedLogins:10];
+                self.failedLogins = 10;
                 [self dismissViewControllerAnimated:YES completion:nil];
                 [self saveAttempts];
                 return;
@@ -130,7 +130,7 @@
             }
         }
     
-        self.descTxt.text = [@"Please wait " stringByAppendingString:[[@(iHrPast) stringValue] stringByAppendingString:@" hours to try again."]];
+        self.descTxt.text = [@"Please wait " stringByAppendingString:[(@(iHrPast)).stringValue stringByAppendingString:@" hours to try again."]];
     }
 
     [self saveAttempts];

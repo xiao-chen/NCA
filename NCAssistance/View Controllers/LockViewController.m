@@ -109,7 +109,7 @@
         if (self.codeIn.text.length > 0) {
             if (self.failedLogins > 0 && self.failedLogins <= 10) {
                 if ([self.delegate verify:self.codeIn.text]) {
-                    [self setFailedLogins:10];
+                    self.failedLogins = 10;
                     [self dismissViewControllerAnimated:YES completion:nil];
                 }
                 else {
@@ -118,7 +118,7 @@
                     self.hoverLbl.text = @"Oops, your password is wrong!";
                     self.cast.text = @"Don't do it wrong";
                     self.now.text = @"";
-                    self.magic.text = [[@(self.failedLogins) stringValue] stringByAppendingString:@" Attempts Left."];
+                    self.magic.text = [(@(self.failedLogins)).stringValue stringByAppendingString:@" Attempts Left."];
                     self.codeIn.text = @"";
                 }
             }
@@ -126,17 +126,17 @@
                 static NSDateFormatter *dateFormatter = nil;
                 if (dateFormatter == nil) {
                     dateFormatter = [[NSDateFormatter alloc] init];
-                    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-                    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+                    dateFormatter.timeStyle = NSDateFormatterNoStyle;
+                    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
                 }
                 
                 // calculate how many hours past since lastFailedDate
                 NSCalendar *cal = [NSCalendar currentCalendar];
                 NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:self.lastFailedDate toDate:[NSDate date] options:0];
-                long iHrPast = 24 - [components hour];
+                long iHrPast = 24 - components.hour;
                 if (iHrPast <= 0) {
                     if ([self.delegate verify:self.codeIn.text]) {
-                        [self setFailedLogins:10];
+                        self.failedLogins = 10;
                         [self dismissViewControllerAnimated:YES completion:nil];
                         [self saveAttempts];
                         return YES;
@@ -152,10 +152,10 @@
                 self.now.text = @"to try again...";
                 
                 if (1 == iHrPast) {
-                    self.magic.text = [[@(iHrPast) stringValue] stringByAppendingString:@" Hour"];
+                    self.magic.text = [(@(iHrPast)).stringValue stringByAppendingString:@" Hour"];
                 }
                 else {
-                    self.magic.text = [[@(iHrPast) stringValue] stringByAppendingString:@" Hours"];
+                    self.magic.text = [(@(iHrPast)).stringValue stringByAppendingString:@" Hours"];
                 }
                 self.codeIn.text = @"";
             }
@@ -200,7 +200,7 @@
 
 - (IBAction)forgotPassword:(id)sender {
     ForgotPasswordViewController *fpvc = [[ForgotPasswordViewController alloc] initWithNibName:@"ForgotPasswordViewController" bundle:nil];
-    fpvc.delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    fpvc.delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [self presentViewController:fpvc animated:NO completion:nil];
 }
 @end

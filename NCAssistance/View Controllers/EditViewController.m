@@ -105,7 +105,7 @@
         [self dismissViewControllerAnimated:YES completion:nil];
         
         // Go to MainViewController
-        UINavigationController *nc = (UINavigationController *)[self presentingViewController];
+        UINavigationController *nc = (UINavigationController *)self.presentingViewController;
         [nc popToRootViewControllerAnimated:NO];
     }
 }

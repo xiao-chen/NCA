@@ -34,7 +34,7 @@
     
     if (!self.scrollTimer)
     {
-        [self setScrollTimer: [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(performAnimation) userInfo:nil repeats:YES]];
+        self.scrollTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(performAnimation) userInfo:nil repeats:YES];
     }
 }
 

@@ -33,18 +33,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     MainViewController *rootViewController = [[MainViewController alloc] initWithStyle:UITableViewStylePlain];
-    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObjectContext *context = self.managedObjectContext;
     if (!context) {
         // Handle the error.
     }
     // Pass the managed object context to the view controller.
     rootViewController.managedObjectContext = context;
-    [self setMainViewControler:rootViewController];
+    self.mainViewControler = rootViewController;
     [self setBShowLockView:YES];
     
     // Create logs for debugging purpose
     UIDevice *device = [UIDevice currentDevice];
-    if (![[device model] isEqualToString:@"iPad Simulator"] && ![[device model] isEqualToString:@"iPhone Simulator"]) {
+    if (![device.model isEqualToString:@"iPad Simulator"] && ![device.model isEqualToString:@"iPhone Simulator"]) {
         // 开始保存日志文件
         [self redirectNSlogToDocumentFolder];
     }
@@ -72,13 +72,13 @@
     // In case the app was terminated
     if (!self.mainViewControler) {
         MainViewController *rootViewController = [[MainViewController alloc] initWithStyle:UITableViewStylePlain];
-        NSManagedObjectContext *context = [self managedObjectContext];
+        NSManagedObjectContext *context = self.managedObjectContext;
         if (!context) {
             // Handle the error.
         }
         // Pass the managed object context to the view controller.
         rootViewController.managedObjectContext = context;
-        [self setMainViewControler:rootViewController];
+        self.mainViewControler = rootViewController;
     }
 }
 
@@ -87,11 +87,11 @@
     // Search to see if login password is set
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Password" inManagedObjectContext:self.managedObjectContext];
-    [request setEntity:entity];
+    request.entity = entity;
     
     //add predicates
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@ AND username = %@", strAppUnlockTitle, strAppUnlockName];
-    [request setPredicate:predicate];
+    request.predicate = predicate;
     
     NSError *error = nil;
     NSMutableArray *mutableFetchResults = [[self.managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
@@ -113,7 +113,7 @@
     if (mutableFetchResults.count > 0) {
         // Locked
         if (!self.lockViewController) {
-            [self setLockViewController:[[LockViewController alloc] initWithNibName:@"LockViewController" bundle:nil]];
+            self.lockViewController = [[LockViewController alloc] initWithNibName:@"LockViewController" bundle:nil];
             self.lockViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
             self.lockViewController.delegate = self.mainViewControler;
         }
@@ -147,10 +147,10 @@
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+        if (managedObjectContext.hasChanges && ![managedObjectContext save:&error]) {
             // Replace this implementation with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
             abort();
         }
     }
@@ -159,7 +159,7 @@
 // Returns the URL to the application's Documents directory.
 - (NSURL *)applicationDocumentsDirectory
 {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    return [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask].lastObject;
 }
 
 #pragma mark - Core Data stack
@@ -171,10 +171,10 @@
         return _managedObjectContext;
     }
     
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    NSPersistentStoreCoordinator *coordinator = self.persistentStoreCoordinator;
     if (coordinator != nil) {
         _managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+        _managedObjectContext.persistentStoreCoordinator = coordinator;
     }
     return _managedObjectContext;
 }
@@ -199,10 +199,10 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Password.sqlite"];
+    NSURL *storeURL = [self.applicationDocumentsDirectory URLByAppendingPathComponent:@"Password.sqlite"];
     
     NSError *error = nil;
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
@@ -227,7 +227,7 @@
          Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
          
          */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
     
@@ -252,11 +252,11 @@
     // Search to see if login password is set
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Password" inManagedObjectContext:self.managedObjectContext];
-    [request setEntity:entity];
+    request.entity = entity;
     
     //add predicates
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@ AND username = %@", strAppUnlockTitle, strAppUnlockName];
-    [request setPredicate:predicate];
+    request.predicate = predicate;
     
     NSError *error = nil;
     NSMutableArray *mutableFetchResults = [[self.managedObjectContext executeFetchRequest:request error:&error] mutableCopy];

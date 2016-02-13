@@ -39,17 +39,17 @@
 
     if (self.managedObjectContext == nil)
     {
-        self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+        self.managedObjectContext = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     }
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Password" inManagedObjectContext:self.managedObjectContext];
-    [request setEntity:entity];
+    request.entity = entity;
     
     // sorting
     NSSortDescriptor *sortDesc1 = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
     NSArray *sortDescriptors = @[sortDesc1];
-    [request setSortDescriptors:sortDescriptors];
+    request.sortDescriptors = sortDescriptors;
     
     NSError *error = nil;
     NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
@@ -63,11 +63,11 @@
         [alert show];
     }
     
-    [self setAPasswords:mutableFetchResults];
+    self.aPasswords = mutableFetchResults;
     
     if (self.aPasswords.count > 0) {
         for (int i=0; i < self.aPasswords.count; i++) {
-            if ([[(Password *)(self.aPasswords)[i] title] isEqualToString: strAppUnlockTitle] && [[(Password *)(self.aPasswords)[i] username] isEqualToString: strAppUnlockName]) {
+            if ([((Password *)(self.aPasswords)[i]).title isEqualToString: strAppUnlockTitle] && [((Password *)(self.aPasswords)[i]).username isEqualToString: strAppUnlockName]) {
                 // NCA password. Hidden
                 [self.aPasswords removeObjectAtIndex:i];
                 break;
@@ -112,8 +112,8 @@
     }
     
     Password *item = (Password *)aPasswords[indexPath.row];
-    cell.titleLabel.text = [item title];
-    cell.notesLabel.text = [item notes];
+    cell.titleLabel.text = item.title;
+    cell.notesLabel.text = item.notes;
     NSLog(@"%@, %@, %@, %@, %@", item.title, item.username, item.password, item.website, item.notes);     //debug
     return cell;
 }
@@ -159,13 +159,13 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"ShowDetails"]) {
-        DetailViewController *dvc = [segue destinationViewController];
-        dvc.record = (Password *)(self.aPasswords)[[self.tableView indexPathForSelectedRow].row];
+    if ([segue.identifier isEqualToString:@"ShowDetails"]) {
+        DetailViewController *dvc = segue.destinationViewController;
+        dvc.record = (Password *)(self.aPasswords)[(self.tableView).indexPathForSelectedRow.row];
 
         // record this visit
-        [(Password *)dvc.record setVisitctr:@([[(Password *)dvc.record visitctr] intValue] + 1)];
-        [(Password *)dvc.record setVisitdt: [NSDate date]];
+        ((Password *)dvc.record).visitctr = @(((Password *)dvc.record).visitctr.intValue + 1);
+        ((Password *)dvc.record).visitdt = [NSDate date];
         dvc.delegate = self;
     }
 }
@@ -173,22 +173,22 @@
 #pragma mark - Unwind segues
 - (IBAction)done:(UIStoryboardSegue *)segue
 {
-    if ([[segue identifier] isEqualToString:@"DoneAdding"]) {        
-        AddViewController *addController = [segue sourceViewController];
+    if ([segue.identifier isEqualToString:@"DoneAdding"]) {        
+        AddViewController *addController = segue.sourceViewController;
         [self addRecord:addController.titleIn.text name:addController.userIn.text password:addController.passwordIn.text onWeb:addController.websiteIn.text withNotes:addController.notesIn.text];
-        [[self tableView] reloadData];
+        [self.tableView reloadData];
     }
-    else if ([[segue identifier] isEqualToString:@"ChangePassword"]) {
+    else if ([segue.identifier isEqualToString:@"ChangePassword"]) {
         Password *pswd;
         // Search to see if login password is set
         {
             NSFetchRequest *request = [[NSFetchRequest alloc] init];
             NSEntityDescription *entity = [NSEntityDescription entityForName:@"Password" inManagedObjectContext:self.managedObjectContext];
-            [request setEntity:entity];
+            request.entity = entity;
             
             //add predicates
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@ AND username = %@", strAppUnlockTitle, strAppUnlockName];
-            [request setPredicate:predicate];
+            request.predicate = predicate;
             
             NSError *error = nil;
             NSMutableArray *mutableFetchResults = [[self.managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
@@ -205,7 +205,7 @@
             pswd = (Password *)mutableFetchResults[0];
         }
 
-        ResetPasswordViewController *rpvc = [segue sourceViewController];
+        ResetPasswordViewController *rpvc = segue.sourceViewController;
         pswd.password = rpvc.passwordIn.text;
         [self UpdateRecord:pswd];
     }
@@ -233,11 +233,11 @@
     // Search to see if login password is set
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Password" inManagedObjectContext:self.managedObjectContext];
-    [request setEntity:entity];
+    request.entity = entity;
     
     //add predicates
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@ AND username = %@", strAppUnlockTitle, strAppUnlockName];
-    [request setPredicate:predicate];
+    request.predicate = predicate;
     
     NSError *error = nil;
     NSMutableArray *mutableFetchResults = [[self.managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
@@ -265,19 +265,19 @@
     
     if (self.managedObjectContext == nil)
     {
-        self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+        self.managedObjectContext = ((AppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext;
     }
     
 	// Create and configure a new instance of the Event entity.
 	Password *item = (Password *)[NSEntityDescription insertNewObjectForEntityForName:@"Password" inManagedObjectContext:self.managedObjectContext];
     
-	[item setTitle: title];
-	[item setUsername: username];
-	[item setPassword: pswd];
-    [item setWebsite:website];
-    [item setNotes:notes];
-    [item setVisitctr:@0];
-    [item setVisitdt:[NSDate date]];
+	item.title = title;
+	item.username = username;
+	item.password = pswd;
+    item.website = website;
+    item.notes = notes;
+    item.visitctr = @0;
+    item.visitdt = [NSDate date];
     
 	if (![self saveContext]) {
     	// Handle the error.

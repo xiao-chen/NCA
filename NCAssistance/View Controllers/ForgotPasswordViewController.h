@@ -11,7 +11,7 @@
 @class Password;
 
 @protocol ForgotPasswordViewControllerDelegate
--(Password *) retriveRecord;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) Password *retriveRecord;
 -(void) dismissLockView;
 @end
 
